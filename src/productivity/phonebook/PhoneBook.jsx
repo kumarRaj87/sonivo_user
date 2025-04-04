@@ -39,8 +39,8 @@ const PhoneBook = () => {
     
       if (loading) {
         return <Loader />;
-      }
-      
+      } 
+
     return (
         <div className="min-h-[50vh] bg-primary-200 w-full">
             <div className="flex flex-col items-center justify-between mb-8">
