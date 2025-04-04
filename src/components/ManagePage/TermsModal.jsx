@@ -1,7 +1,7 @@
 const TermsModal = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[5005]">
-      <div className="bg-white rounded-lg w-full max-w-lg">
+      <div className="bg-background rounded-lg w-full max-w-lg">
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-lg font-semibold">Terms & Conditions</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
@@ -23,7 +23,7 @@ const TermsModal = ({ onClose }) => {
               defaultValue="Terms Page updated"
             />
           </div>
-          <button className="w-full bg-blue-900 text-white py-2 rounded-md hover:bg-blue-800">
+          <button className="w-full bg-blue-900 text-background py-2 rounded-md hover:bg-blue-800">
             Submit
           </button>
         </div>

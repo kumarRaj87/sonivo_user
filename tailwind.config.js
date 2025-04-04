@@ -16,6 +16,9 @@ export default {
         },
         accent:{
           DEFAULT: '#808080'
+        },
+        background:{
+          DEFAULT: "#ffffff"
         }
       },
     },

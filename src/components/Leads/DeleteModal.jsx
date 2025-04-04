@@ -5,7 +5,7 @@ const DeleteModal = ({ isOpen, onClose, onConfirm, lead }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[5005]">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md">
+      <div className="bg-background rounded-lg p-6 w-full max-w-md">
         <h2 className="text-xl font-bold mb-4">Delete Lead</h2>
         <p className="mb-4">
           Are you sure you want to delete the lead for {lead.name}? This action cannot be undone.
@@ -22,7 +22,7 @@ const DeleteModal = ({ isOpen, onClose, onConfirm, lead }) => {
               onConfirm();
               onClose();
             }}
-            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+            className="px-4 py-2 bg-red-600 text-background rounded hover:bg-red-700"
           >
             Delete
           </button>

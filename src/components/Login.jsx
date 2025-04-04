@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { IoEye } from "react-icons/io5";
-import { IoMdEyeOff, IoMdKey } from "react-icons/io";
+import { IoMdClose, IoMdEyeOff, IoMdKey } from "react-icons/io";
 import { toast } from "sonner";
 import { MdFace } from "react-icons/md";
 import { MdPhone } from "react-icons/md";
@@ -12,7 +12,7 @@ function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [mobileNum, setMobileNum]= useState(null);
+  const [mobileNum, setMobileNum] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [showForgotPassword, setShowForgotPassword] = useState(false);
@@ -37,7 +37,7 @@ function Login({ onLogin }) {
 
   return (
     <div className="min-h-screen bg-primary-200 flex flex-col items-center justify-center p-4">
-      <div className="w-full sm:w-[80%] md:w-[550px] bg-white p-10 rounded-lg">
+      <div className="w-full sm:w-[80%] md:w-[550px] bg-background p-10 rounded-lg">
         <div className="mb-8 text-center">
           <img
             src="https://sonivo.oneoftheprojects.com/media/p3v6PjgmKVqXnG3pg1ivUTHmox7o1a3E.png"
@@ -61,14 +61,14 @@ function Login({ onLogin }) {
         )}
 
         <div className="text-center mt-6 mb-4 text-sm text-accent relative after:content-[''] after:absolute after:left-0 after:right-0 after:top-1/2 after:h-[1px] after:bg-gray-200">
-          <span className="relative z-10 bg-white px-4 text-xs font-medium text-accent">Login or Signup</span>
+          <span className="relative z-10 bg-background px-4 text-xs font-medium text-accent">Login or Signup</span>
         </div>
 
         {
           !signupform ?
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1
+                <div className="absolute -top-2.5 left-3 bg-background px-1
                transition-all duration-300
                text-primary text-[11px]">
                   Email
@@ -77,7 +77,7 @@ function Login({ onLogin }) {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-12 text-sm rounded-[9px] bg-white pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
+                  className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                   placeholder=""
                 />
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -87,14 +87,14 @@ function Login({ onLogin }) {
 
 
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+                <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                   Password
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-12 text-sm rounded-[9px] bg-white pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
+                  className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                   placeholder=""
                 />
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -115,16 +115,16 @@ function Login({ onLogin }) {
 
               <button
                 type="submit"
-                className="w-full text-sm bg-primary-400 text-white mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
+                className="w-full text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
               >
-                <IoMdKey className='text-white' size={24} />
+                <IoMdKey className='text-background' size={24} />
                 Login
               </button>
             </form>
             :
             <form className="space-y-4">
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1
+                <div className="absolute -top-2.5 left-3 bg-background px-1
                transition-all duration-300
                text-primary text-[11px]">
                   Email
@@ -133,7 +133,7 @@ function Login({ onLogin }) {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-12 text-sm rounded-[9px] bg-white pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
+                  className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                   placeholder=""
                 />
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -142,14 +142,14 @@ function Login({ onLogin }) {
               </div>
 
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+                <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                   Password
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-12 text-sm rounded-[9px] bg-white pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
+                  className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                   placeholder=""
                 />
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -169,7 +169,7 @@ function Login({ onLogin }) {
               </div>
 
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1
+                <div className="absolute -top-2.5 left-3 bg-background px-1
                transition-all duration-300
                text-primary text-[11px]">
                   Your Name
@@ -178,7 +178,7 @@ function Login({ onLogin }) {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full pl-12 text-sm rounded-[9px] bg-white pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
+                  className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                   placeholder=""
                 />
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -187,7 +187,7 @@ function Login({ onLogin }) {
               </div>
 
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1
+                <div className="absolute -top-2.5 left-3 bg-background px-1
                transition-all duration-300
                text-primary text-[11px]">
                   Mobile Number
@@ -196,7 +196,7 @@ function Login({ onLogin }) {
                   type="number"
                   value={mobileNum}
                   onChange={(e) => setMobileNum(e.target.value)}
-                  className="w-full pl-12 text-sm rounded-[9px] bg-white pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
+                  className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                   placeholder=""
                 />
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -222,8 +222,8 @@ function Login({ onLogin }) {
 
               <button
                 type="submit"
-                onClick={(e)=> e.preventDefault()}
-                className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none"
+                onClick={(e) => e.preventDefault()}
+                className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md text-sm font-medium text-background bg-primary hover:bg-primary/90 focus:outline-none"
               >
                 Signup
               </button>
@@ -243,68 +243,61 @@ function Login({ onLogin }) {
           </div>
         }
 
-          <div className="text-sm mt-6 flex text-[#44546F] gap-2 w-full justify-center items-center">
-           {!signupform ?  "Don't have an account?" : "Already have an account?"}
-            <p
-              className="text-[#1e2e3c] font-medium hover:underline cursor-pointer"
-              onClick={() => {
-                setSignupform(!signupform)
-              }}
-            >
-              {
-                signupform ? "Login" : "Signup"
-              }
-            </p>
-          </div>
+        <div className="text-sm mt-6 flex text-[#44546F] gap-2 w-full justify-center items-center">
+          {!signupform ? "Don't have an account?" : "Already have an account?"}
+          <p
+            className="text-[#1e2e3c] font-medium hover:underline cursor-pointer"
+            onClick={() => {
+              setSignupform(!signupform)
+            }}
+          >
+            {
+              signupform ? "Login" : "Signup"
+            }
+          </p>
+        </div>
       </div>
 
       {showForgotPassword && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
-            <button
-              onClick={() => setShowForgotPassword(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            <h3 className="text-xl font-semibold mb-4">Send recovery link</h3>
-
-            <form onSubmit={handleRecovery}>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Enter your email
-                </label>
-                <input
-                  type="email"
-                  value={recoveryEmail}
-                  onChange={(e) => setRecoveryEmail(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                  placeholder="Enter your email"
-                />
+        <>
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999999]">
+            <div className="bg-background rounded-2xl shadow-lg w-full md:w-[600px]">
+              <div className='flex justify-between mb-4 rounded-t-2xl px-6 py-4 items-center w-full gap-6'>
+                <h2 className="text-lg font-semibold text-center">Send Recovery Link</h2>
+                <IoMdClose className='text-gray-600 cursor-pointer' size={20} onClick={() => setShowForgotPassword(false)} />
               </div>
 
-              <button
-                type="submit"
-                className="w-full text-sm bg-primary-400 text-white mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
-              >
-                Send Link
-              </button>
-            </form>
+              <form onSubmit={handleRecovery} className="space-y-4 px-4 pb-4">
+                <div className="relative group">
+                  <div className="absolute -top-2.5 left-3 bg-background px-1
+               transition-all duration-300
+               text-primary text-[11px]">
+                    Email
+                  </div>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
+                    placeholder=""
+                  />
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <MdEmail className='text-accent' size={20} />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
+
+        </>
+
       )}
     </div>
   );

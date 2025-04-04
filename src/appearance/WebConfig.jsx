@@ -55,7 +55,7 @@ function WebConfig() {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6 w-full flex flex-col">
-                    <div className="flex gap-6 bg-white rounded-xl px-2 py-4 flex-col">
+                    <div className="flex gap-6 bg-background rounded-xl px-2 py-4 flex-col">
                         <div className='flex w-full justify-between items-center'>
                             <label className="text-sm font-medium text-primary">Allow custom home</label>
                             <button
@@ -63,12 +63,12 @@ function WebConfig() {
                                 onClick={() => setAllowCustomHome(!allowCustomHome)}
                                 className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors duration-200 ease-in-out ${allowCustomHome ? 'bg-primary' : 'bg-gray-200'}`}
                             >
-                                <span className={`inline-block h-3 w-3 transform rounded-full bg-white transition duration-200 ease-in-out ${allowCustomHome ? 'translate-x-6' : 'translate-x-1'}`} />
+                                <span className={`inline-block h-3 w-3 transform rounded-full bg-background transition duration-200 ease-in-out ${allowCustomHome ? 'translate-x-6' : 'translate-x-1'}`} />
                             </button>
                         </div>
                         {allowCustomHome && (
                             <div className="relative group">
-                                <div className="absolute -top-2.5 left-3 bg-white px-1 
+                                <div className="absolute -top-2.5 left-3 bg-background px-1 
                             transition-all duration-300 
                             text-primary text-[11px]">
                                     Enter custrom home URL
@@ -175,9 +175,9 @@ function WebConfig() {
 
                     <button
                         type="submit"
-                        className="w-full text-sm bg-primary-400 text-center text-white py-2 px-4 rounded-md hover:bg-primary transition-colors duration-200 flex items-center justify-center gap-2"
+                        className="w-full text-sm bg-primary-400 text-center text-background py-2 px-4 rounded-md hover:bg-primary transition-colors duration-200 flex items-center justify-center gap-2"
                     >
-                        <FaSave className='text-white' size={20}/>
+                        <FaSave className='text-background' size={20}/>
                         Submit
                     </button>
                 </form>

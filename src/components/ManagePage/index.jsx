@@ -84,14 +84,14 @@ const ManagePage = () => {
             <p className="text-gray-500">Click or drag files to upload</p>
           </div>
         </div>
-        <button className="w-full mt-4 bg-blue-900 text-white py-3 rounded-md hover:bg-blue-800">
+        <button className="w-full mt-4 bg-blue-900 text-background py-3 rounded-md hover:bg-blue-800">
           Add
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {cards.map((card, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-sm p-4">
+          <div key={index} className="bg-background rounded-lg shadow-sm p-4">
             <img
               src={card.image}
               alt={card.title}

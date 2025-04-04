@@ -123,14 +123,14 @@ function Dashboard() {
   return (
     <div className="min-h-screen bg-primary-200 p-2 w-full">
       <div className="gap-5 flex justify-between items-center mb-5">
-        <div className="h-[330px] p-6 w-1/2 bg-white rounded-lg flex flex-col justify-between items-start">
+        <div className="h-[330px] p-6 w-1/2 bg-background rounded-lg flex flex-col justify-between items-start">
           <div className='w-full items-center gap-3 justify-start flex px-3 py-2'>
             <TbArrowFork className='text-primary-500' size={20} />
             <p className='text-primary-300 text-xl font-semibold'>Agent Callforce</p>
           </div>
           <Line data={data} options={options} />
         </div>
-        <div className="h-[330px] w-1/2 p-6 bg-white rounded-lg flex flex-col justify-between items-start w">
+        <div className="h-[330px] w-1/2 p-6 bg-background rounded-lg flex flex-col justify-between items-start w">
           <div className='w-full items-center gap-3 justify-start flex px-3 py-2'>
             <MdPhoneForwarded className='text-primary-500' size={20} />
             <p className='text-primary-300 text-xl font-semibold'>Broadcast Logs</p>
@@ -138,7 +138,7 @@ function Dashboard() {
           <Line data={data} options={options} />
         </div>
       </div>
-      <div className="w-full bg-white p-4 gap-2 flex-col flex justify-start items-start">
+      <div className="w-full bg-background p-4 gap-2 flex-col flex justify-start items-start">
         {stats.map((stat, index) => (
           <div key={index} className="w-full justify-between items-center flex border-primary-200 border-b-[1px]">
             <div className="flex items-center gap-4 w-full justify-start">

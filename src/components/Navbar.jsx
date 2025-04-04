@@ -41,14 +41,14 @@ const Navbar = ({ handleLogout }) => {
             {/* Profile Update Popup */}
             {showProfilePopup && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999999]">
-                    <div className="bg-white rounded-2xl shadow-lg w-full md:w-[600px]">
+                    <div className="bg-background rounded-2xl shadow-lg w-full md:w-[600px]">
                         <div className='flex justify-start mb-4 rounded-t-2xl px-6 py-4 items-center w-full gap-6 bg-primary-200'>
                             <IoMdClose className='text-gray-600 cursor-pointer' size={20} onClick={() => setShowProfilePopup(false)} />
                             <h2 className="text-lg font-semibold text-center">Update Profile</h2>
                         </div>
                         <form onSubmit={handleProfileUpdate} className='rounded-b-2xl p-6 gap-4 w-full flex flex-col'>
                             <div className="relative group">
-                                <div className="absolute -top-2.5 left-3 bg-white px-1 
+                                <div className="absolute -top-2.5 left-3 bg-background px-1 
               transition-all duration-300 
               text-primary text-[11px]">
                                     Email
@@ -62,7 +62,7 @@ const Navbar = ({ handleLogout }) => {
                                 />
                             </div>
                             <div className="relative group">
-                                <div className="absolute -top-2.5 left-3 bg-white px-1 
+                                <div className="absolute -top-2.5 left-3 bg-background px-1 
               transition-all duration-300 
               text-primary text-[11px]">
                                     Password
@@ -79,7 +79,7 @@ const Navbar = ({ handleLogout }) => {
                             <div className="flex justify-center w-full">
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 w-full text-sm bg-primary-400 text-white rounded-md hover:bg-primary"
+                                    className="px-4 py-2 w-full text-sm bg-primary-400 text-background rounded-md hover:bg-primary"
                                 >
                                     Submit
                                 </button>

@@ -50,7 +50,7 @@ const FrontPartner = () => {
           </div>
           <button
             onClick={handleFileUpload}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
+            className="bg-blue-600 hover:bg-blue-700 text-background px-4 py-2 rounded-lg flex items-center gap-2"
           >
             <Plus size={20} />
             <span>Add</span>
@@ -110,7 +110,7 @@ const FrontPartner = () => {
             </button>
             <button
               type="submit"
-              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-background hover:bg-blue-700"
             >
               Save Changes
             </button>

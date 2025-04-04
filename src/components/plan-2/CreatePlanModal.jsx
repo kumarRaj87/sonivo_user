@@ -35,7 +35,7 @@ const CreatePlanModal = ({ onClose, onSave }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[5005]">
-      <div className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-background rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center p-6 border-b">
           <h2 className="text-2xl font-semibold">Create plan</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
@@ -65,7 +65,7 @@ const CreatePlanModal = ({ onClose, onSave }) => {
               }`}
             >
               <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                className={`inline-block h-4 w-4 transform rounded-full bg-background transition-transform ${
                   formData.isTrial ? 'translate-x-6' : 'translate-x-1'
                 }`}
               />
@@ -123,7 +123,7 @@ const CreatePlanModal = ({ onClose, onSave }) => {
                   }`}
                 >
                   <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    className={`inline-block h-4 w-4 transform rounded-full bg-background transition-transform ${
                       formData[field] ? 'translate-x-6' : 'translate-x-1'
                     }`}
                   />
@@ -179,7 +179,7 @@ const CreatePlanModal = ({ onClose, onSave }) => {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="px-4 py-2 bg-blue-600 text-background rounded-lg hover:bg-blue-700"
             >
               Save
             </button>

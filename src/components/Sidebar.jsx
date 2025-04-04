@@ -45,7 +45,7 @@ const Sidebar = () => {
     }
 
     return (
-        <aside className={`fixed inset-y-0 left-0 w-60 bg-white transform transition-transform duration-300 ease-in-out`}>
+        <aside className={`fixed inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out`}>
             <div className="h-16 flex items-center px-4">
                 <Link to="/dashboard" className="flex items-center space-x-2">
                     <svg className="h-8 w-8" viewBox="0 0 50 50">
