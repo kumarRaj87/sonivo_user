@@ -8,10 +8,6 @@ import { IoMdMail } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
 import { MdOutlineSupportAgent } from "react-icons/md";
 import {
-    Palette,
-    Settings,
-    Mail,
-    Languages,
     Contact,
     ArrowDownUp
 } from 'lucide-react'
@@ -79,8 +75,8 @@ const Sidebar = () => {
                             key={item.path}
                             to={item.path}
                             className={`flex items-center space-x-3 px-3 py-1.5 rounded-md mb-1 text-sm ${isActive(item.path)
-                                    ? 'bg-[#F7FAFC] text-[#1C2833] font-medium'
-                                    : 'text-gray-800 hover:bg-[#F7FAFC]'
+                                ? 'bg-[#F7FAFC] text-[#1C2833] font-medium'
+                                : 'text-gray-800 hover:bg-[#F7FAFC]'
                                 }`}
                         >
                             <item.icon className={`h-[18px] w-[18px] ${isActive(item.path) ? 'text-[#1C2833]' : 'text-gray-600'
