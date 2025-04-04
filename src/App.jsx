@@ -18,6 +18,9 @@ import FAQ from './components/FAQ/FAQ';
 import WebTheme from './components/Web theme/WebTheme';
 import NotFound from './notfound/NotFound';
 
+
+
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem('isAuthenticated') === 'true';
@@ -69,12 +72,14 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/web-theme" element={<WebTheme />} />
             <Route path="*" element={<NotFound />} />
+           
           </Route>
         ) : (
           <Route path="*" element={<Navigate to="/login" replace />} />
         )}
 
         <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
+       
       </Routes>
     </Router>
   );
