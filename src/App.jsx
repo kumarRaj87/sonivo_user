@@ -17,6 +17,9 @@ import Testimonial from './components/Testimonial/Testimonial';
 import FAQ from './components/FAQ/FAQ';
 import WebTheme from './components/Web theme/WebTheme';
 import NotFound from './notfound/NotFound';
+import PhoneBook from './productivity/phonebook/PhoneBook';
+import { toast } from 'sonner';
+import CallFlow from './productivity/callflow/CallFlow';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -42,6 +45,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
     setIsAuthenticated(false);
+    toast.success("loggedout successfully!")
   };
 
   return (
@@ -67,6 +71,8 @@ function App() {
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/web-theme" element={<WebTheme />} />
+            <Route path='/phone-book' element={<PhoneBook/>}/>
+            <Route path='/callflow' element={<CallFlow/>}/>
             <Route path="*" element={<NotFound />} />
           </Route>
         ) : (
