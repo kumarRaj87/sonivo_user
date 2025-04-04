@@ -17,6 +17,13 @@ import Testimonial from './components/Testimonial/Testimonial';
 import FAQ from './components/FAQ/FAQ';
 import WebTheme from './components/Web theme/WebTheme';
 import NotFound from './notfound/NotFound';
+import PhoneBook from './productivity/phonebook/PhoneBook';
+import { toast } from 'sonner';
+import CallFlow from './productivity/callflow/CallFlow';
+import DeviceManager from './components/DeviceManager.jsx/DeviceManager';
+import PrepareDevice from './components/PrepareDevice.jsx/PrepareDevice';
+import CallBroadcast from './components/CallBroadcast/CallBroadcast';
+import RouteLoader from './loader/RouterLoader';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -42,9 +49,12 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
     setIsAuthenticated(false);
+    toast.success("loggedout successfully!")
   };
 
   return (
+    <>
+      {/* <RouteLoader /> */}
       <Routes>
         <Route
           path="/login"
@@ -54,19 +64,11 @@ function App() {
         {isAuthenticated ? (
           <Route element={<Layout handleLogout={handleLogout} />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/payment-gateway" element={<PaymentGateway />} />
-            <Route path="/plan" element={<Plan />} />
-            <Route path="/front-partner" element={<FrontPartner />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/web-config" element={<WebConfig />} />
-            <Route path="/smtp-settings" element={<SmtpSettings />} />
-            <Route path="/web-translation" element={<Translation />} />
-            <Route path="/leads" element={<Leads />} />
-            <Route path="/manage-page" element={<ManagePage />} />
-            <Route path="/testimonial" element={<Testimonial />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/web-theme" element={<WebTheme />} />
+            <Route path='/phone-book' element={<PhoneBook />} />
+            <Route path='/callflow' element={<CallFlow />} />
+            <Route path="/dailer" element={<DeviceManager />} />
+            <Route path="/prepare-device" element={<PrepareDevice />} />
+            <Route path="/call-broadcast" element={<CallBroadcast />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         ) : (
@@ -76,6 +78,7 @@ function App() {
         <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
 
       </Routes>
+    </>
   );
 }
 

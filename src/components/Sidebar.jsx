@@ -30,8 +30,8 @@ const Sidebar = () => {
         { path: '/messaging', icon: IoMdMail, label: 'Messaging' },
         { divider: true, label: 'Productivity' },
         { path: '/phone-book', icon: Contact, label: 'Phonebook' },
-        { path: '/callflow', icon: ArrowDownUp, label: 'Callflow builder' },
-        { path: '/callflow-capture', icon: FaSave, label: 'Callflow capture' },
+        { path: '/callflow', icon: ArrowDownUp, label: 'Call flow builder' },
+        { path: '/callflow-capture', icon: FaSave, label: 'Call flow capture' },
         { divider: true, label: 'Agent Management' },
         { path: '/create-agent', icon: MdOutlineSupportAgent, label: 'Create agent' },
         { path: '/call-force', icon: TbArrowFork, label: 'Call Force' },
@@ -46,19 +46,14 @@ const Sidebar = () => {
 
     return (
         <aside className={`fixed inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out`}>
-            <div className="h-16 flex items-center px-4">
+            <div className="h-20 flex items-center px-4">
                 <Link to="/dashboard" className="flex items-center space-x-2">
-                    <svg className="h-8 w-8" viewBox="0 0 50 50">
-                        <path
-                            d="M25 0C11.2 0 0 11.2 0 25s11.2 25 25 25 25-11.2 25-25S38.8 0 25 0zm0 45C13.4 45 5 36.6 5 25S13.4 5 25 5s20 8.4 20 20-8.4 20-20 20z"
-                            className="fill-primary"
-                        />
-                        <path
-                            d="M25 10c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm0 25c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10z"
-                            className="fill-primary opacity-75"
-                        />
-                    </svg>
-                    <span className="text-xl font-semibold text-[#1C2833]">Soniva ai</span>
+                    <img
+                        src="https://sonivo.oneoftheprojects.com/media/p3v6PjgmKVqXnG3pg1ivUTHmox7o1a3E.png"
+                        alt="Logo"
+                        className="h-12"
+                    />
+                    <span className="text-xl font-semibold text-[#1C2833] flex items-end justify-start w-full h-12">Sonivo ai</span>
                 </Link>
             </div>
 
