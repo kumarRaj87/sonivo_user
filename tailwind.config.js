@@ -14,6 +14,9 @@ export default {
           400:'#21374B',
           500:'#0A1F31'
         },
+        accent:{
+          DEFAULT: '#808080'
+        }
       },
     },
   },
