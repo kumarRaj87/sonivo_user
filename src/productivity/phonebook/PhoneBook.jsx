@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoMdClose } from 'react-icons/io';
 import { Plus, FileText, Download, Trash2 } from 'lucide-react';
 import ContactModal from './ContactModal';
+import Loader from '../../loader/Loader';
 
 const PhoneBook = () => {
     const [showAddphonebook, setShowAddphonebook] = useState(false);
     const [title, setTitle] = useState('')
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-
+    const [loading, setLoading] = useState(true);
     const mockData = [
         {
             id: 1,
@@ -32,6 +32,15 @@ const PhoneBook = () => {
     ];
 
     const [contacts] = useState(mockData);
+
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 500);
+      }, []);
+    
+      if (loading) {
+        return <Loader />;
+      }
+      
     return (
         <div className="min-h-[50vh] bg-primary-200 w-full">
             <div className="flex flex-col items-center justify-between mb-8">

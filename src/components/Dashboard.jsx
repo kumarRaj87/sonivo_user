@@ -19,6 +19,8 @@ import {
   Contact,
   ArrowDownUp
 } from 'lucide-react'
+import { useEffect, useState } from 'react';
+import Loader from '../loader/Loader';
 
 ChartJS.register(
   CategoryScale,
@@ -32,6 +34,17 @@ ChartJS.register(
 );
 
 function Dashboard() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 500);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+  
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   const data = {
