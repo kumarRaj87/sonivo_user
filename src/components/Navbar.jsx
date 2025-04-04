@@ -33,7 +33,7 @@ const Navbar = ({ handleLogout }) => {
                         className="p-2 rounded-md text-gray-600 hover:bg-gray-100"
                         onClick={handleLogout}
                     >
-                        <FiLogOut className='text-[#808080]' size={24} />
+                        <FiLogOut className='text-accent' size={24} />
                     </button>
                 </div>
             </div>
