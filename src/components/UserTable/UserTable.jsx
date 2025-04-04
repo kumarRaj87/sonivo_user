@@ -130,7 +130,7 @@ const UserTable = () => {
   }
 
   return (
-    <div className="bg-white p-4 w-full rounded-xl overflow-hidden">
+    <div className="bg-background p-4 w-full rounded-xl overflow-hidden">
       {isMobileView ? (
         // Mobile View
         <div className="divide-y divide-gray-200">
@@ -199,10 +199,10 @@ const UserTable = () => {
                 <th className="px-4 py-4 text-left text-sm font-medium text-primary-400  tracking-wider">Actions</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-background divide-y divide-gray-200">
               {filteredUsers.map((user) => (
                 <tr key={user.id} className="hover:bg-primary-200">
-                  <td className="px-4 py-4 whitespace-nowrap">
+                  <td className="px-4 py-4 backgroundspace-nowrap">
                     <button
                       className="text-blue-500 hover:text-blue-700"
                       title="Auto Login"
@@ -210,11 +210,11 @@ const UserTable = () => {
                       <LogIn size={20} />
                     </button>
                   </td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-primary">{user.name}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-primary-400">{user.mobile}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-primary-400">{user.email}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-primary-400">{user.planExpire}</td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm text-primary-400 space-x-2">
+                  <td className="px-4 py-4 backgroundspace-nowrap text-sm font-medium text-primary">{user.name}</td>
+                  <td className="px-4 py-4 backgroundspace-nowrap text-sm text-primary-400">{user.mobile}</td>
+                  <td className="px-4 py-4 backgroundspace-nowrap text-sm text-primary-400">{user.email}</td>
+                  <td className="px-4 py-4 backgroundspace-nowrap text-sm text-primary-400">{user.planExpire}</td>
+                  <td className="px-4 py-4 backgroundspace-nowrap text-sm text-primary-400 space-x-2">
                     <button
                       onClick={() => handleEdit(user)}
                       className="text-gray-600 hover:text-primary p-1"

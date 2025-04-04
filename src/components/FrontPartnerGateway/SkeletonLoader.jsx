@@ -1,6 +1,6 @@
 import React from "react";
 const SkeletonCard = () => {
-  return <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 relative flex flex-col items-center justify-center h-40">
+  return <div className="bg-background p-4 rounded-lg shadow-sm border border-gray-100 relative flex flex-col items-center justify-center h-40">
       <div className="w-20 h-20 mb-2 bg-gray-200 rounded-full animate-pulse"></div>
       <div className="h-4 w-16 bg-gray-200 rounded animate-pulse mt-2"></div>
     </div>;

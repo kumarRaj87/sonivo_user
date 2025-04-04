@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Login from './components/Login';
 import Layout from './components/Layout';
@@ -45,7 +45,6 @@ function App() {
   };
 
   return (
-    <Router>
       <Routes>
         <Route
           path="/login"
@@ -75,8 +74,8 @@ function App() {
         )}
 
         <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
+
       </Routes>
-    </Router>
   );
 }
 

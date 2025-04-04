@@ -113,15 +113,15 @@ function SmtpSettings() {
         <div className="flex gap-4">
           <button
             type="submit"
-            className="px-4 py-2 text-sm bg-primary-400 text-white rounded-md hover:bg-primary transition-colors flex items-center gap-2"
+            className="px-4 py-2 text-sm bg-primary-400 text-background rounded-md hover:bg-primary transition-colors flex items-center gap-2"
           >
-            <FaSave className='text-white' size={18}/>
+            <FaSave className='text-background' size={18}/>
             Save
           </button>
           <button
             type="button"
             onClick={handleCheckSettings}
-            className="px-4 py-2 text-sm bg-white text-primary border border-primary rounded-md hover:bg-primary-200 transition-colors flex items-center gap-2"
+            className="px-4 py-2 text-sm bg-background text-primary border border-primary rounded-md hover:bg-primary-200 transition-colors flex items-center gap-2"
           >
             <TbMailForward className='text-primary' size={18}/>
             Check SMTP Settings

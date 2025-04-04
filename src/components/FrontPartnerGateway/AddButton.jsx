@@ -12,7 +12,7 @@ const AddButton = ({
     }
   };
   return <div className="flex justify-end my-6">
-      <button onClick={handleAddClick} className="px-6 py-2 bg-white text-gray-600 border border-gray-300 rounded hover:bg-gray-50">
+      <button onClick={handleAddClick} className="px-6 py-2 bg-background text-gray-600 border border-gray-300 rounded hover:bg-gray-50">
         Add
       </button>
       <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*" multiple />

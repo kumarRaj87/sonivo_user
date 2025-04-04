@@ -2,7 +2,7 @@ import React from 'react';
 
 const PlanCardSkeleton = () => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6 animate-pulse">
+    <div className="bg-background rounded-lg shadow-md p-6 mb-6 animate-pulse">
       <div className="flex justify-between items-center mb-4">
         <div className="h-8 w-48 bg-gray-200 rounded"></div>
         <div className="h-10 w-24 bg-gray-200 rounded"></div>

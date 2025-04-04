@@ -39,7 +39,7 @@ const PaymentGateway = () => {
 
         <div className="space-y-6">
           {/* Offline Pay */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+          <div className="bg-background p-6 rounded-lg shadow-sm">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-medium text-gray-900">Offline Pay</h2>
               <div className="flex items-center">
@@ -51,7 +51,7 @@ const PaymentGateway = () => {
                 </button>
                 <label className="relative inline-flex items-center ml-4 cursor-pointer">
                   <input type="checkbox" className="sr-only peer" />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-background after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-background after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                 </label>
               </div>
             </div>
@@ -76,7 +76,7 @@ const PaymentGateway = () => {
 
           {/* Payment Gateway Sections */}
           {['Stripe Gateway', 'Paypal Gateway', 'Razorpay Gateway'].map((gateway) => (
-            <div key={gateway} className="bg-white p-6 rounded-lg shadow-sm">
+            <div key={gateway} className="bg-background p-6 rounded-lg shadow-sm">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-medium text-gray-900">{gateway}</h2>
                 <div className="flex items-center">
@@ -88,7 +88,7 @@ const PaymentGateway = () => {
                   </button>
                   <label className="relative inline-flex items-center ml-4 cursor-pointer">
                     <input type="checkbox" className="sr-only peer" />
-                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-background after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-background after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                   </label>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const PaymentGateway = () => {
           ))}
         </div>
 
-        <button className="w-full mt-6 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        <button className="w-full mt-6 px-4 py-2 bg-blue-600 text-background rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
           Update
         </button>
       </div>
