@@ -16,6 +16,7 @@ import ManagePage from './components/ManagePage/index';
 import Testimonial from './components/Testimonial/Testimonial';
 import FAQ from './components/FAQ/FAQ';
 import WebTheme from './components/Web theme/WebTheme';
+import NotFound from './notfound/NotFound';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -67,12 +68,13 @@ function App() {
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/web-theme" element={<WebTheme />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         ) : (
           <Route path="*" element={<Navigate to="/login" replace />} />
         )}
 
-        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
+        <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
       </Routes>
     </Router>
   );
