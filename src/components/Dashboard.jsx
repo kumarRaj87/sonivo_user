@@ -10,7 +10,15 @@ import {
   Legend,
   Filler
 } from 'chart.js';
-import { Users, DollarSign, FileText } from 'lucide-react';
+import { MdPhoneForwarded } from "react-icons/md";
+import { TbArrowFork } from "react-icons/tb";
+import { FiCheckCircle } from "react-icons/fi";
+import { PiPhonePlusBold } from "react-icons/pi";
+import { TbPhoneRinging } from "react-icons/tb";
+import {
+  Contact,
+  ArrowDownUp
+} from 'lucide-react'
 
 ChartJS.register(
   CategoryScale,
@@ -30,26 +38,18 @@ function Dashboard() {
     labels: months,
     datasets: [
       {
-        label: 'Paid users',
-        data: [54, 43, 30, 32, 0, 0, 0, 0, 0, 0, 0, 0],
+        label: 'Completed',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         borderColor: '#3A7D90',
         backgroundColor: 'rgba(58, 125, 144, 0.1)',
         fill: true,
         tension: 0.4,
       },
       {
-        label: 'Unpaid users',
-        data: [3, 16, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        borderColor: 'rgb(46, 74, 98)',
-        backgroundColor: 'rgba(46, 74, 98, 0.1)',
-        fill: true,
-        tension: 0.4,
-      },
-      {
-        label: 'Orders',
-        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        borderColor: 'rgb(76, 175, 80)',
-        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+        label: 'Initiated',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: '#FF6384',
+        backgroundColor: 'rgba(255, 99, 132, 0.1)',
         fill: true,
         tension: 0.4,
       },
@@ -89,46 +89,67 @@ function Dashboard() {
 
   const stats = [
     {
-      title: 'Total Users',
-      value: '190',
-      icon: Users,
+      title: 'Agent Incoming',
+      value: '7',
+      icon: TbPhoneRinging,
     },
     {
-      title: 'Total orders',
-      value: '45',
-      icon: DollarSign,
+      title: 'Total Campaign',
+      value: '0',
+      icon: MdPhoneForwarded,
     },
     {
-      title: 'Total leads',
+      title: 'Total Devices',
       value: '1',
-      icon: FileText,
+      icon: PiPhonePlusBold,
+    },
+    {
+      title: 'Total task(s)',
+      value: '2',
+      icon: FiCheckCircle,
+    },
+    {
+      title: 'Total flow response(s)',
+      value: '2',
+      icon: ArrowDownUp,
+    },
+    {
+      title: 'Total contact(s)',
+      value: '2',
+      icon: Contact,
     },
   ];
 
   return (
-    <div className="min-h-screen bg-primary-200 p-6">
-      <div className="max-w-7xl mx-auto space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {stats.map((stat, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-blue-50 rounded-lg">
-                  <stat.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-primary-400">{stat.title}</h3>
-                  <p className="text-2xl font-semibold text-primary">{stat.value}</p>
-                </div>
+    <div className="min-h-screen bg-primary-200 p-2 w-full">
+      <div className="gap-5 flex justify-between items-center mb-5">
+        <div className="h-[330px] p-6 w-1/2 bg-white rounded-lg flex flex-col justify-between items-start">
+          <div className='w-full items-center gap-3 justify-start flex px-3 py-2'>
+            <TbArrowFork className='text-primary-500' size={20} />
+            <p className='text-primary-300 text-xl font-semibold'>Agent Callforce</p>
+          </div>
+          <Line data={data} options={options} />
+        </div>
+        <div className="h-[330px] w-1/2 p-6 bg-white rounded-lg flex flex-col justify-between items-start w">
+          <div className='w-full items-center gap-3 justify-start flex px-3 py-2'>
+            <MdPhoneForwarded className='text-primary-500' size={20} />
+            <p className='text-primary-300 text-xl font-semibold'>Broadcast Logs</p>
+          </div>
+          <Line data={data} options={options} />
+        </div>
+      </div>
+      <div className="w-full bg-white p-4 gap-2 flex-col flex justify-start items-start">
+        {stats.map((stat, index) => (
+          <div key={index} className="w-full justify-between items-center flex border-primary-200 border-b-[1px]">
+            <div className="flex items-center gap-4 w-full justify-start">
+              <stat.icon className="w-10 h-10 text-primary-300" />
+              <h3 className="text-sm font-semibold text-primary-300 w-full">{stat.title}</h3>
+              <div className='w-full flex justify-end items-center'>
+                <p className="text-lg font-semibold text-primary-300">{stat.value}</p>
               </div>
             </div>
-          ))}
-        </div>
-
-        <div className="bg-white rounded-lg p-6 shadow-sm">
-          <div className="h-[400px]">
-            <Line data={data} options={options} />
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
