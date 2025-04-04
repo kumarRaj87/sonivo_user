@@ -1,22 +1,24 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { MdSpaceDashboard } from "react-icons/md";
+import { MdDialerSip } from "react-icons/md";
+import { MdPhoneForwarded } from "react-icons/md";
+import { MdWifiCalling3 } from "react-icons/md";
+import { IoMdMail } from "react-icons/io";
+import { FaSave } from "react-icons/fa";
+import { MdOutlineSupportAgent } from "react-icons/md";
 import {
-    //   LayoutDashboard,
-    Users,
-    FileText,
-    CreditCard,
-    Users2,
-    ShoppingCart,
-    MessageSquare,
-    FileEdit,
-    MessageCircle,
-    HelpCircle,
     Palette,
     Settings,
     Mail,
-    Languages
+    Languages,
+    Contact,
+    ArrowDownUp
 } from 'lucide-react'
+
+import { TbArrowFork } from "react-icons/tb";
+import { TbPhoneRinging } from "react-icons/tb";
+import { PiPhonePlusBold } from "react-icons/pi";
 
 const Sidebar = () => {
     const location = useLocation()
@@ -24,22 +26,22 @@ const Sidebar = () => {
     const menuItems = [
         { divider: true, label: 'Useful' },
         { path: '/dashboard', icon: MdSpaceDashboard, label: 'Dashboard' },
-        { path: '/users', icon: Users, label: 'Users' },
-        { path: '/plan', icon: FileText, label: 'Plan' },
-        { path: '/payment-gateway', icon: CreditCard, label: 'Payment Gateway' },
-        { divider: true, label: 'Partnerships' },
-        { path: '/front-partner', icon: Users2, label: 'Front Partner' },
-        { path: '/orders', icon: ShoppingCart, label: 'Orders' },
-        { path: '/leads', icon: MessageSquare, label: 'Leads' },
-        { divider: true, label: 'Content Management' },
-        { path: '/manage-page', icon: FileEdit, label: 'Manage Page' },
-        { path: '/testimonial', icon: MessageCircle, label: 'Testimonial' },
-        { path: '/faq', icon: HelpCircle, label: 'FAQ' },
-        { divider: true, label: 'Appearance & Settings' },
-        { path: '/web-theme', icon: Palette, label: 'Web theme' },
-        { path: '/web-config', icon: Settings, label: 'Web Config' },
-        { path: '/smtp-settings', icon: Mail, label: 'SMTP Settings' },
-        { path: '/web-translation', icon: Languages, label: 'Web Translation' }
+        { divider: true, label: 'Voice' },
+        { path: '/dailer', icon: MdDialerSip, label: 'Dailer' },
+        { path: '/prepare-device', icon: MdWifiCalling3, label: 'Prepare device' },
+        { path: '/call-broadcast', icon: MdPhoneForwarded, label: 'Call Broadcast' },
+        { divider: true, label: 'Messaging' },
+        { path: '/messaging', icon: IoMdMail, label: 'Messaging' },
+        { divider: true, label: 'Productivity' },
+        { path: '/phone-book', icon: Contact, label: 'Phonebook' },
+        { path: '/callflow', icon: ArrowDownUp, label: 'Callflow builder' },
+        { path: '/callflow-capture', icon: FaSave, label: 'Callflow capture' },
+        { divider: true, label: 'Agent Management' },
+        { path: '/create-agent', icon: MdOutlineSupportAgent, label: 'Create agent' },
+        { path: '/call-force', icon: TbArrowFork, label: 'Call Force' },
+        { path: '/incoming-agent', icon: TbPhoneRinging, label: 'Agent Incoming Calls' },
+        { divider: true, label: 'Config' },
+        { path: '/device-manager', icon: PiPhonePlusBold, label: 'Device Manager' },
     ]
 
     const isActive = (path) => {

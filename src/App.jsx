@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   const handleLogin = (email, password) => {
-    if (email === 'admin@yopmail.com' && password === 'Test@123') {
+    if (email === 'user@yopmail.com' && password === 'Test@123') {
       localStorage.setItem('isAuthenticated', 'true');
       setIsAuthenticated(true);
       return true;
