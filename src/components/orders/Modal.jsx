@@ -13,7 +13,7 @@ const Modal = ({ isOpen, onClose, row }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[5002]">
-      <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div className="bg-background rounded-lg p-8 max-w-md w-full mx-4">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold">Edit Record</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
@@ -46,7 +46,7 @@ const Modal = ({ isOpen, onClose, row }) => {
               <div className="space-y-1 text-center">
                 <Upload className="mx-auto h-12 w-12 text-gray-400" />
                 <div className="flex text-sm text-gray-600">
-                  <label className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500">
+                  <label className="relative cursor-pointer bg-background rounded-md font-medium text-blue-600 hover:text-blue-500">
                     <span>Upload a file</span>
                     <input type="file" className="sr-only" onChange={handleFileChange} />
                   </label>
@@ -66,7 +66,7 @@ const Modal = ({ isOpen, onClose, row }) => {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="px-4 py-2 bg-blue-600 text-background rounded-md hover:bg-blue-700"
             >
               Save Changes
             </button>

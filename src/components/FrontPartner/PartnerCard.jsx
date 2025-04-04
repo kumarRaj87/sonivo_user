@@ -3,7 +3,7 @@ import { Edit, Trash2 } from 'lucide-react';
 
 const PartnerCard = ({ partner, onEdit }) => {
   return (
-    <div className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow">
+    <div className="bg-background rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow">
       <img 
         src={partner.logo} 
         alt={partner.name}

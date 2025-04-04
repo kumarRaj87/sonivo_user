@@ -17,7 +17,7 @@ const EditModal = ({ user, onClose, onUpdate }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg w-full max-w-md">
+      <div className="bg-background rounded-lg w-full max-w-md">
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-xl font-semibold">Update user</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
@@ -67,7 +67,7 @@ const EditModal = ({ user, onClose, onUpdate }) => {
             />
           </div>
 
-          <button className="w-full bg-blue-600 text-white py-2 rounded flex items-center justify-center space-x-2 hover:bg-blue-700">
+          <button className="w-full bg-blue-600 text-background py-2 rounded flex items-center justify-center space-x-2 hover:bg-blue-700">
             <span>Update</span>
           </button>
         </form>

@@ -17,6 +17,9 @@ import Testimonial from './components/Testimonial/Testimonial';
 import FAQ from './components/FAQ/FAQ';
 import WebTheme from './components/Web theme/WebTheme';
 import NotFound from './notfound/NotFound';
+import DeviceManager from './components/DeviceManager.jsx/DeviceManager';
+import PrepareDevice from './components/PrepareDevice.jsx/PrepareDevice';
+import CallBroadcast from './components/CallBroadcast/CallBroadcast';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -67,6 +70,9 @@ function App() {
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/web-theme" element={<WebTheme />} />
+            <Route path="/dailer" element={<DeviceManager />} />
+            <Route path="/prepare-device" element={<PrepareDevice />} />
+            <Route path="/call-broadcast" element={<CallBroadcast />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         ) : (

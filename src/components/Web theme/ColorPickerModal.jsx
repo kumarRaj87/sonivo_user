@@ -15,7 +15,7 @@ const ColorPickerModal = ({ isOpen, onClose, onColorSelect, initialColor }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[5005]">
-      <div className="bg-white rounded-lg shadow-xl w-80">
+      <div className="bg-background rounded-lg shadow-xl w-80">
         <div className="relative">
           <div 
             className="w-full h-64 rounded-t-lg cursor-pointer"
@@ -26,7 +26,7 @@ const ColorPickerModal = ({ isOpen, onClose, onColorSelect, initialColor }) => {
             onClick={handleColorSelect}
           >
             <div 
-              className="absolute w-6 h-6 border-2 border-white rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg"
+              className="absolute w-6 h-6 border-2 border-background rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg"
               style={{ 
                 left: '50%',
                 top: '50%',
@@ -42,7 +42,7 @@ const ColorPickerModal = ({ isOpen, onClose, onColorSelect, initialColor }) => {
             onClick={handleColorSelect}
           >
             <div 
-              className="absolute w-6 h-6 border-2 border-white rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg"
+              className="absolute w-6 h-6 border-2 border-background rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg"
               style={{ 
                 left: '50%',
                 bottom: '6px',

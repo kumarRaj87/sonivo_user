@@ -5,7 +5,7 @@ const EmailModal = ({ isOpen, onClose, lead }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[5005]">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md">
+      <div className="bg-background rounded-lg p-6 w-full max-w-md">
         <h2 className="text-xl font-bold mb-4">Send Email</h2>
         <div className="mb-4">
           <p><span className="font-semibold">To:</span> {lead.email}</p>
@@ -29,7 +29,7 @@ const EmailModal = ({ isOpen, onClose, lead }) => {
           </button>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="px-4 py-2 bg-blue-600 text-background rounded hover:bg-blue-700"
           >
             Send
           </button>
