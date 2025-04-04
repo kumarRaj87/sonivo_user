@@ -16,8 +16,9 @@ const Navbar = ({ handleLogout }) => {
     };
 
     return (
-        <header className="h-16 sticky top-0 justify-end flex w-full pl-60 bg-[#F7FAFC] border-b-[1px] border-gray-200 z-[5000]">
-            <div className="h-full px-4 flex items-center justify-between">
+        <header className="h-16 sticky top-0 px-4 justify-between flex w-full bg-primary-200 border-b-[1px] border-gray-200 z-[5000]">
+            <p className='text-xl flex font-semibold justify-start items-center text-primary w-full'>👋🏻 Welcome back!</p>
+            <div className="h-full flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                     <button
                         className="p-2 rounded-md text-gray-600 hover:bg-gray-100"
