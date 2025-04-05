@@ -45,7 +45,6 @@ const MobileSidebar = ({ isOpen, onClose }) => {
 
     return (
         <>
-            {/* Overlay */}
             {isOpen && (
                 <div 
                     className="fixed inset-0 bg-black bg-opacity-50 z-[5500]"
@@ -54,7 +53,7 @@ const MobileSidebar = ({ isOpen, onClose }) => {
             )}
             
             <aside 
-                className={`block md:hidden z-[6000] fixed inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out ${
+                className={`block lg:hidden z-[6000] fixed inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out ${
                     isOpen ? 'translate-x-0' : '-translate-x-full'
                 }`}
             >

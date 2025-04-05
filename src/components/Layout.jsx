@@ -19,7 +19,7 @@ function Layout({ handleLogout }) {
         onClose={() => setMobileSidebarOpen(false)}
       />
 
-      <div className="flex flex-col w-full md:pl-60">
+      <div className="flex flex-col w-full lg:pl-60">
         <Navbar
           handleLogout={handleLogout}
           toggleSidebar={toggleMobileSidebar}

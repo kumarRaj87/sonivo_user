@@ -11,7 +11,7 @@ const Navbar = ({ handleLogout, toggleSidebar }) => {
         <div className="flex items-center">
           {/* Mobile menu button - shown only below md breakpoint */}
           <button
-            className="md:hidden p-2 mr-2 rounded-md text-gray-600 hover:bg-gray-100"
+            className="lg:hidden p-2 mr-2 rounded-md text-gray-600 hover:bg-gray-100"
             onClick={toggleSidebar}
           >
             <FiMenu className="h-6 w-6" />
