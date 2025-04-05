@@ -28,7 +28,7 @@ function App() {
     if (storedAuth !== isAuthenticated) {
       setIsAuthenticated(storedAuth);
     }
-  }, []);
+  }, [isAuthenticated]);
 
   const handleLogin = (email, password) => {
     if (email === 'user@yopmail.com' && password === 'Test@123') {
@@ -46,38 +46,35 @@ function App() {
   };
 
   return (
-    <>
-      {/* <RouteLoader /> */}
-      <Routes>
-        <Route
-          path="/login"
-          element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login onLogin={handleLogin} />}
-        />
+    <Routes>
+      <Route
+        path="/login"
+        element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login onLogin={handleLogin} />}
+      />
 
-        {isAuthenticated ? (
-          <Route element={<Layout handleLogout={handleLogout} />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path='/phone-book' element={<PhoneBook />} />
-            <Route path='/callflow' element={<CallFlow />} />
-            <Route path="/dailer" element={<Dailer />} />
-            <Route path="/prepare-device" element={<PrepareDevice />} />
-            <Route path="/call-broadcast" element={<CallBroadcast />} />
-            <Route path="/messaging" element={<Messaging />} />
-            <Route path="/callflow-capture" element={<FlowCapture />} />
-            <Route path="/create-agent" element={<CreateAgentTable />} />
-            <Route path="/call-force" element={<CallForceTable />} />
-            <Route path="/incoming-agent" element={<AgentIncomingCallsTable />} />
-            <Route path="/device-manager" element={<DeviceManager />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        ) : (
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        )}
+      <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
 
-        <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
+      {isAuthenticated ? (
+        <Route element={<Layout handleLogout={handleLogout} />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path='/phone-book' element={<PhoneBook />} />
+          <Route path='/callflow' element={<CallFlow />} />
+          <Route path="/dailer" element={<Dailer />} />
+          <Route path="/prepare-device" element={<PrepareDevice />} />
+          <Route path="/call-broadcast" element={<CallBroadcast />} />
+          <Route path="/messaging" element={<Messaging />} />
+          <Route path="/callflow-capture" element={<FlowCapture />} />
+          <Route path="/create-agent" element={<CreateAgentTable />} />
+          <Route path="/call-force" element={<CallForceTable />} />
+          <Route path="/incoming-agent" element={<AgentIncomingCallsTable />} />
+          <Route path="/device-manager" element={<DeviceManager />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      ) : (
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      )}
 
-      </Routes>
-    </>
+    </Routes>
   );
 }
 
