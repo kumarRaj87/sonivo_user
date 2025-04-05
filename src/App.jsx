@@ -3,33 +3,20 @@ import { useState, useEffect } from 'react';
 import Login from './components/Login';
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
-import Users from './components/UserTable/index';
-import Plan from './components/plan-2/PlansContainer';
-import PaymentGateway from './components/payment/PaymentGateway';
-import FrontPartner from './components/FrontPartnerGateway/FrontPartnerGateway';
-import Orders from './components/orders/Layout';
-import WebConfig from './appearance/WebConfig';
-import SmtpSettings from './appearance/SmtpSettings';
-import Translation from './appearance/Translation';
-import Leads from './components/Leads/LeadsContainer';
-import ManagePage from './components/ManagePage/index';
-import Testimonial from './components/Testimonial/Testimonial';
-import FAQ from './components/FAQ/FAQ';
-import WebTheme from './components/Web theme/WebTheme';
 import NotFound from './notfound/NotFound';
 import PhoneBook from './productivity/phonebook/PhoneBook';
 import { toast } from 'sonner';
 import CallFlow from './productivity/callflow/CallFlow';
-import DeviceManager from './components/DeviceManager.jsx/DeviceManager';
-import PrepareDevice from './components/PrepareDevice.jsx/PrepareDevice';
+import PrepareDevice from './components/PrepareDevice/PrepareDevice';
 import CallBroadcast from './components/CallBroadcast/CallBroadcast';
-import RouteLoader from './loader/RouterLoader';
 import Messaging from './messaging/Messaging';
 import FlowCapture from './productivity/callcapture/FlowCapture';
 import CreateAgentTable from './components/CreateAgent/CreateAgentTable';
 import CallForceTable from './components/CallForce/CallForceTable';
 
 import AgentIncomingCallsTable from './components/AgentIncomingCalls/AgentIncomingCallsTable';
+import Dailer from './components/Dailer/Dailer';
+import DeviceManager from './deviceManager/DeviceManager';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -72,14 +59,15 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path='/phone-book' element={<PhoneBook />} />
             <Route path='/callflow' element={<CallFlow />} />
-            <Route path="/dailer" element={<DeviceManager />} />
+            <Route path="/dailer" element={<Dailer />} />
             <Route path="/prepare-device" element={<PrepareDevice />} />
             <Route path="/call-broadcast" element={<CallBroadcast />} />
             <Route path="/messaging" element={<Messaging />} />
             <Route path="/callflow-capture" element={<FlowCapture />} />
-            <Route path="/create-agent" element={  <CreateAgentTable />} />
-            <Route path="/call-force" element={   <CallForceTable />} />
-            <Route path="/incoming-agent" element={   <AgentIncomingCallsTable />} />
+            <Route path="/create-agent" element={<CreateAgentTable />} />
+            <Route path="/call-force" element={<CallForceTable />} />
+            <Route path="/incoming-agent" element={<AgentIncomingCallsTable />} />
+            <Route path="/device-manager" element={<DeviceManager />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         ) : (
