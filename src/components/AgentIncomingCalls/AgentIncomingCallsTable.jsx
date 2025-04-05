@@ -224,7 +224,7 @@ const mockData = [
 
 export default function AgentIncomingCallsTable() {
   return (
-    <div className="p-4 sm:p-6">
+    <div className="min-h-[50vh] bg-primary-200 w-full">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
         <div className="flex items-center gap-4 w-full sm:w-auto  lg:flex-col">
@@ -251,7 +251,7 @@ export default function AgentIncomingCallsTable() {
       </div>
 
       {/* Table Section */}
-      <div className="bg-white rounded-lg shadow overflow-hidden">
+      <div className="overflow-hidden">
         <div className="overflow-x-auto">
           {/* Desktop Table */}
           <table className="min-w-full divide-y divide-gray-200 hidden sm:table">
