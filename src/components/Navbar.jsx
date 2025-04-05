@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
-import { FiLogOut } from "react-icons/fi";
+import { FiLogOut, FiMenu } from "react-icons/fi";
 import ProfileModal from './ProfileModal';
 
-const Navbar = ({ handleLogout }) => {
+const Navbar = ({ handleLogout, toggleSidebar }) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   return (
     <>
       <header className="h-16 sticky top-0 px-4 justify-between flex w-full bg-primary-200 border-b-[1px] border-gray-200 z-[5000]">
-        <p className='text-xl flex font-semibold justify-start items-center text-primary w-full'>👋🏻 Welcome back!</p>
+        <div className="flex items-center">
+          {/* Mobile menu button - shown only below md breakpoint */}
+          <button
+            className="lg:hidden p-2 mr-2 rounded-md text-gray-600 hover:bg-gray-100"
+            onClick={toggleSidebar}
+          >
+            <FiMenu className="h-6 w-6" />
+          </button>
+
+          {/* Welcome message - hidden on mobile */}
+          <p className='flex text-xl font-semibold justify-start items-center text-primary'>👋🏻 Welcome back!</p>
+        </div>
+        
         <div className="h-full flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <button

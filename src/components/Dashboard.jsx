@@ -38,7 +38,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
+    setTimeout(() => setLoading(false), 300);
   }, []);
 
   if (loading) {
@@ -135,15 +135,15 @@ function Dashboard() {
 
   return (
     <div className="min-h-screen bg-primary-200 p-2 w-full">
-      <div className="gap-5 flex justify-between items-center mb-5">
-        <div className="h-[330px] p-6 w-1/2 bg-background rounded-lg flex flex-col justify-between items-start">
+      <div className="gap-5 md:flex-row justify-between items-center mb-5 flex flex-col">
+        <div className="sm:h-[330px] h-[270px] md:p-6 p-2 md:w-1/2 w-full bg-background rounded-lg flex flex-col justify-between items-start">
           <div className='w-full items-center gap-3 justify-start flex px-3 py-2'>
             <TbArrowFork className='text-primary-500' size={20} />
             <p className='text-primary-300 text-xl font-semibold'>Agent Callforce</p>
           </div>
           <Line data={data} options={options} />
         </div>
-        <div className="h-[330px] w-1/2 p-6 bg-background rounded-lg flex flex-col justify-between items-start w">
+        <div className="sm:h-[330px] h-[270px] md:w-1/2 w-full md:p-6 p-2 bg-background rounded-lg flex flex-col justify-between items-start w">
           <div className='w-full items-center gap-3 justify-start flex px-3 py-2'>
             <MdPhoneForwarded className='text-primary-500' size={20} />
             <p className='text-primary-300 text-xl font-semibold'>Broadcast Logs</p>

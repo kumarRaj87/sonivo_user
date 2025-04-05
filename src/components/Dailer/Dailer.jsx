@@ -6,12 +6,12 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdPhonePortrait } from "react-icons/io";
 import Loader from '../../loader/Loader';
 
-const DeviceManager = () => {
+const Dailer = () => {
   const [showDeviceModal, setShowDeviceModal] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
+    setTimeout(() => setLoading(false), 300);
   }, []);
 
   if (loading) {
@@ -28,7 +28,7 @@ const DeviceManager = () => {
             className='h-24 w-24'
           />
         </div>
-        <div className='w-full justify-between items-center flex'>
+        <div className='w-full sm:justify-between justify-start sm:items-center items-start sm:flex-row flex flex-col'>
 
           <div className='space-y-2 flex flex-col'>
             <h1 className="text-2xl font-medium text-primary"> Device Manager</h1>
@@ -40,7 +40,7 @@ const DeviceManager = () => {
           </div>
           <button
             onClick={() => setShowDeviceModal(true)}
-            className="text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
+            className="text-sm self-end bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
           >
             <IoMdPhonePortrait className='text-background' size={20} />
             Select Device
@@ -48,9 +48,9 @@ const DeviceManager = () => {
         </div>
       </div>
       {/* Info Message */}
-      <div className="flex items-center gap-2 bg-blue-50 text-blue-600 p-4 rounded-lg">
-        <IoInformationCircleOutline className="text-xl flex-shrink-0" />
-        <span>Please select a device</span>
+      <div className="flex items-center gap-2 bg-blue-50 p-4 rounded-lg">
+        <IoInformationCircleOutline className="text-xl flex-shrink-0 text-blue-600" />
+        <span className='text-xs'>Please select a device</span>
       </div>
 
       {/* Device Selection Modal */}
@@ -94,4 +94,4 @@ const DeviceManager = () => {
   );
 };
 
-export default DeviceManager;
+export default Dailer;

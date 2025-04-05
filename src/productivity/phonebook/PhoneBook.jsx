@@ -34,7 +34,7 @@ const PhoneBook = () => {
     const [contacts] = useState(mockData);
 
     useEffect(() => {
-        setTimeout(() => setLoading(false), 500);
+        setTimeout(() => setLoading(false), 300);
       }, []);
     
       if (loading) {
@@ -51,7 +51,7 @@ const PhoneBook = () => {
                         className='h-24 w-24'
                     />
                 </div>
-                <div className='w-full justify-between items-center flex'>
+                <div className='w-full sm:justify-between justify-start sm:items-center items-start sm:flex-row flex flex-col'>
 
                     <div className='space-y-2 flex flex-col'>
                         <h1 className="text-2xl font-medium text-primary">Phonebook</h1>
@@ -63,7 +63,7 @@ const PhoneBook = () => {
                     </div>
                     <button
                         onClick={() => setShowAddphonebook(true)}
-                        className="text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
+                        className="text-sm self-end bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
                     >
                         <Plus className='text-background' size={20} />
                         Add Phonebook
