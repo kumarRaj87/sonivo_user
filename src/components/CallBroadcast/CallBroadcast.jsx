@@ -85,7 +85,7 @@ const CallBroadcast = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 300);
+    setTimeout(() => setLoading(false), 500);
   }, []);
 
   if (loading) {
@@ -95,8 +95,8 @@ const CallBroadcast = () => {
   return (
 
     <div className="min-h-[50vh] bg-primary-200 w-full">
-      <div className="flex flex-col items-center justify-between mb-8">
-        <div className="flex justify-start items-center w-full">
+      <div className="flex  items-center justify-between mb-8 lg:flex-col">
+        <div className="flex justify-start items-center w-full ">
           <img
             src='https://sonivo.oneoftheprojects.com/assets/call_broadcast.svg'
             alt=''
