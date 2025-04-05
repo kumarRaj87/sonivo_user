@@ -45,7 +45,7 @@ const Sidebar = () => {
     }
 
     return (
-        <aside className={`fixed inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out`}>
+        <aside className={`fixed hidden md:block inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out`}>
             <div className="h-20 flex items-center px-4">
                 <Link to="/dashboard" className="flex items-center space-x-2">
                     <img

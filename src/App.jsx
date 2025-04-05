@@ -25,6 +25,7 @@ import PrepareDevice from './components/PrepareDevice.jsx/PrepareDevice';
 import CallBroadcast from './components/CallBroadcast/CallBroadcast';
 import RouteLoader from './loader/RouterLoader';
 import Messaging from './messaging/Messaging';
+import FlowCapture from './productivity/callcapture/FlowCapture';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -71,6 +72,7 @@ function App() {
             <Route path="/prepare-device" element={<PrepareDevice />} />
             <Route path="/call-broadcast" element={<CallBroadcast />} />
             <Route path="/messaging" element={<Messaging />} />
+            <Route path="/callflow-capture" element={<FlowCapture />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         ) : (
