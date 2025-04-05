@@ -4,9 +4,9 @@ import { IoMdClose } from 'react-icons/io';
 import { MdOutlinePhoneIphone } from 'react-icons/md';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdPhonePortrait } from "react-icons/io";
-import Loader from '../../loader/Loader';
+import Loader from '../loader/Loader';
 
-const DeviceManager = () => {
+const Messaging = () => {
   const [showDeviceModal, setShowDeviceModal] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -21,9 +21,9 @@ const DeviceManager = () => {
   return (
     <div className="min-h-[50vh] bg-primary-200 w-full">
       <div className="flex flex-col items-center justify-between mb-8">
-        <div className="flex justify-start items-center w-full">
+        <div className="flex justify-start items-center w-full mb-2">
           <img
-            src='https://sonivo.oneoftheprojects.com/assets/dialertitle.svg'
+            src='https://sonivo.oneoftheprojects.com/assets/message.svg'
             alt=''
             className='h-24 w-24'
           />
@@ -31,11 +31,11 @@ const DeviceManager = () => {
         <div className='w-full justify-between items-center flex'>
 
           <div className='space-y-2 flex flex-col'>
-            <h1 className="text-2xl font-medium text-primary"> Device Manager</h1>
+            <h1 className="text-2xl font-medium text-primary"> Messaging</h1>
             <div className="flex items-center gap-2 text-xs text-gray-400">
               <span>Dashboard</span>
               <span>•</span>
-              <span> Device Manager</span>
+              <span> Messaging</span>
             </div>
           </div>
           <button
@@ -64,7 +64,7 @@ const DeviceManager = () => {
               >
                 <IoMdClose size={24} />
               </button>
-              <h2 className="text-lg font-medium">Choose device</h2>
+              <h2 className="text-lg font-medium">Select device</h2>
             </div>
 
             <div className="p-4">
@@ -94,4 +94,4 @@ const DeviceManager = () => {
   );
 };
 
-export default DeviceManager;
+export default Messaging;
