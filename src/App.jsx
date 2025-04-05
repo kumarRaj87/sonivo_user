@@ -26,6 +26,10 @@ import CallBroadcast from './components/CallBroadcast/CallBroadcast';
 import RouteLoader from './loader/RouterLoader';
 import Messaging from './messaging/Messaging';
 import FlowCapture from './productivity/callcapture/FlowCapture';
+import CreateAgentTable from './components/CreateAgent/CreateAgentTable';
+import CallForceTable from './components/CallForce/CallForceTable';
+
+import AgentIncomingCallsTable from './components/AgentIncomingCalls/AgentIncomingCallsTable';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -73,6 +77,9 @@ function App() {
             <Route path="/call-broadcast" element={<CallBroadcast />} />
             <Route path="/messaging" element={<Messaging />} />
             <Route path="/callflow-capture" element={<FlowCapture />} />
+            <Route path="/create-agent" element={  <CreateAgentTable />} />
+            <Route path="/call-force" element={   <CallForceTable />} />
+            <Route path="/incoming-agent" element={   <AgentIncomingCallsTable />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         ) : (
