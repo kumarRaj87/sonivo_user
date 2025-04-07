@@ -1,11 +1,18 @@
-import { Plus } from 'lucide-react';
+import { PencilIcon, Plus, TrashIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import Loader from '../../loader/Loader';
+import FlowBuilder from './FlowBuilder';
+import CreateFlowDialog from './CreateFlowDialog';
 
 const CallFlow = () => {
 
     const [showCreateCall, setShowCreateCall] = useState(false);
     const [loading, setLoading] = useState(true);
+
+    const flows = [
+        { id: 1, name: 'Testing flow', date: '5 months ago' },
+        { id: 2, name: 'Testing flow 2', date: '5 months ago' },
+    ];
 
     useEffect(() => {
         setTimeout(() => setLoading(false), 300);
@@ -44,6 +51,35 @@ const CallFlow = () => {
                     </button>
                 </div>
             </div>
+
+            <div className="gap-5 w-full justify-center items-center flex-col flex">
+                {flows.map((flow) => (
+                    <div
+                        key={flow.id}
+                        className="flex items-center justify-between p-4 rounded-2xl bg-background w-full"
+                    >
+                        <div>
+                            <h3 className="text-lg font-medium text-gray-900">{flow.name}</h3>
+                            <p className="text-sm text-gray-500">{flow.date}</p>
+                        </div>
+                        <div className="flex items-center space-x-4">
+                            <button className="text-blue-600 hover:text-blue-700">
+                                <PencilIcon className="h-5 w-5" />
+                            </button>
+                            <button className="text-red-600 hover:text-red-700">
+                                <TrashIcon className="h-5 w-5" />
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <CreateFlowDialog
+                open={showCreateCall}
+                onClose={() => setShowCreateCall(false)}
+            >
+                <FlowBuilder onClose={() => setShowCreateCall(false)} />
+            </CreateFlowDialog>
         </div>
     )
 }
