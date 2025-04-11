@@ -146,16 +146,16 @@ export default function CallForceTable() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4 ">
         <div className="flex items-center gap-4 w-full sm:w-auto lg:flex-col" >
           <img
-            src='https://sonivo.oneoftheprojects.com/assets/call_force.svg'
+            src='https://sonivo.oneoftheprojects.com/assets/plan.svg'
             alt=''
             className='h-16 w-16 sm:h-24 sm:w-24'
           />
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Call Force</h2>
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Plan</h2>
             <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
               <span>Dashboard</span>
               <span>•</span>
-              <span>Call Force</span>
+              <span>Plan</span>
             </div>
           </div>
         </div>
