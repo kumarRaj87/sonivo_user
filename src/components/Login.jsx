@@ -7,8 +7,9 @@ import { IoMdClose, IoMdEyeOff, IoMdKey } from "react-icons/io";
 import { toast } from "sonner";
 import { MdFace } from "react-icons/md";
 import { MdPhone } from "react-icons/md";
+import axios from "axios";
 
-function Login({ onLogin }) {
+function Login({ setIsAuthenticated }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -18,22 +19,102 @@ function Login({ onLogin }) {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [recoveryEmail, setRecoveryEmail] = useState("");
   const [signupform, setSignupform] = useState(false);
+  const [signupEmail, setSignupEmail] = useState('');
+  const [signupPassword, setSignupPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (onLogin(email, password)) {
-      toast.success('loggedin successfully!')
-      navigate("/dashboard");
-    } else {
-      setError("Invalid credentials");
+  // const BASE_URL = import.meta.env.VITE_BASE_URL;
+  const BASE_URL = "http://62.169.31.76:3000";
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError('')
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/user/login`,
+        {
+          email,
+          password
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'accept': 'application/json'
+          }
+        }
+      )
+
+      if (response.data.success) {
+        localStorage.setItem('authToken', response.data.data.token)
+        localStorage.setItem('isAuthenticated', 'true');
+        setIsAuthenticated(true);
+        navigate('/dashboard');
+        toast.success("Logged in successfully!")
+      } else {
+        setError(response.data.message || 'Login failed')
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || 'An error occurred during login')
+      console.error('Login error:', error)
+      toast.error(error.response?.data?.message || 'Login failed')
+    } finally {
+      setIsLoading(false)
     }
-  };
+  }
+
+  const handleSignup = async (e) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError('')
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/user/signup`,
+        {
+          name: name,
+          email: signupEmail,
+          password: signupPassword,
+          mobile: mobileNum,
+          acceptPolicy: true
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'accept': 'application/json'
+          }
+        }
+      )
+
+      if (response.data.success) {
+        toast.success("Registration successful! Please login.")
+        setSignupform(false)
+        setSignupEmail('')
+        setSignupPassword('')
+        setMobileNum('');
+        setName('')
+      } else {
+        setError(response.data.message || 'Registration failed')
+        toast.error(response.data.message || 'Registration failed')
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || 'An error occurred during registration')
+      console.error('Registration error:', error)
+      toast.error(error.response?.data?.message || 'Registration failed')
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   const handleRecovery = (e) => {
-    e.preventDefault();
-    setShowForgotPassword(false);
-  };
+    e.preventDefault()
+    setShowForgotPassword(false)
+    toast.info("Recovery email sent if account exists")
+  }
+
 
   return (
     <div className="min-h-screen bg-primary-200 flex flex-col items-center justify-center p-4">
@@ -66,7 +147,7 @@ function Login({ onLogin }) {
 
         {
           !signupform ?
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleLogin} className="space-y-4">
               <div className="relative group">
                 <div className="absolute -top-2.5 left-3 bg-background px-1
                transition-all duration-300
@@ -112,17 +193,46 @@ function Login({ onLogin }) {
                   )}
                 </button>
               </div>
-
               <button
                 type="submit"
-                className="w-full text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
+                disabled={isLoading}
+                className={`w-full text-sm bg-primary-400 text-white mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2 ${isLoading ? 'opacity-75 cursor-not-allowed' : ''
+                  }`}
               >
-                <IoMdKey className='text-background' size={24} />
-                Login
+                {isLoading ? (
+                  <>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    <IoMdKey className="text-white" size={24} />
+                    Login
+                  </>
+                )}
               </button>
             </form>
             :
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSignup}>
               <div className="relative group">
                 <div className="absolute -top-2.5 left-3 bg-background px-1
                transition-all duration-300
@@ -131,8 +241,8 @@ function Login({ onLogin }) {
                 </div>
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={signupEmail}
+                  onChange={(e) => setSignupEmail(e.target.value)}
                   className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                   placeholder=""
                 />
@@ -147,8 +257,8 @@ function Login({ onLogin }) {
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={signupPassword}
+                  onChange={(e) => setSignupPassword(e.target.value)}
                   className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                   placeholder=""
                 />
@@ -222,10 +332,40 @@ function Login({ onLogin }) {
 
               <button
                 type="submit"
-                onClick={(e) => e.preventDefault()}
-                className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md text-sm font-medium text-background bg-primary hover:bg-primary/90 focus:outline-none"
+                disabled={isLoading}
+                className={`w-full text-sm bg-primary-400 text-white mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2 ${isLoading ? 'opacity-75 cursor-not-allowed' : ''
+                  }`}
               >
-                Signup
+                {isLoading ? (
+                  <>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    <IoMdKey className='text-white' size={24} />
+                    Signup
+                  </>
+                )}
               </button>
 
             </form>
@@ -276,8 +416,8 @@ function Login({ onLogin }) {
                   </div>
                   <input
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={recoveryEmail}
+                    onChange={(e) => setRecoveryEmail(e.target.value)}
                     className="w-full pl-12 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                     placeholder=""
                   />
