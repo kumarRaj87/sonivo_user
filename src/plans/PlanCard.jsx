@@ -1,9 +1,28 @@
+
+
 import React, { useState } from 'react';
-import { Check, X, Phone, Smartphone, Clock, CreditCard, DollarSign, Shield } from 'lucide-react';
+import { 
+  Check, 
+  X, 
+  Phone, 
+  Smartphone, 
+  Clock, 
+  CreditCard, 
+  Shield, 
+  ChevronDown, 
+  ChevronUp, 
+  DollarSign 
+} from 'lucide-react';
+import clsx from 'clsx';
+import { FaMoneyBillAlt } from 'react-icons/fa';
+import { FaStripeS } from 'react-icons/fa6';
+import { FaPaypal } from 'react-icons/fa';
+import { SiRazorpay } from 'react-icons/si';
 
 const PlanCard = ({ plan }) => {
   const [showPaymentDialog, setShowPaymentDialog] = useState(false);
   const [activePaymentMethod, setActivePaymentMethod] = useState('stripe');
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
   const getIcon = (feature) => {
     return feature ? 
@@ -11,23 +30,16 @@ const PlanCard = ({ plan }) => {
       <X className="w-5 h-5 text-red-500" />;
   };
 
-  const openPaymentDialog = () => {
-    setShowPaymentDialog(true);
-  };
-
-  const closePaymentDialog = () => {
-    setShowPaymentDialog(false);
-  };
-
-  const handlePaymentMethodChange = (method) => {
-    setActivePaymentMethod(method);
+  const toggleDescription = () => {
+    setIsDescriptionExpanded(!isDescriptionExpanded);
   };
 
   const PaymentMethodTab = ({ id, title, active, onClick }) => (
     <button
-      className={`px-4 py-3 text-sm font-medium transition-colors duration-200 ${
+      className={clsx(
+        'px-4 py-3 text-sm font-medium transition-colors duration-200',
         active ? 'bg-primary-500 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-      }`}
+      )}
       onClick={() => onClick(id)}
     >
       {title}
@@ -36,11 +48,11 @@ const PlanCard = ({ plan }) => {
 
   const PaymentDialog = () => (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[6500]">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md p-6 max-h-screen overflow-y-auto">
+      <div className="bg-white rounded-lg shadow-xl w-full max-w-md p-6 max-h-[90vh] overflow-y-auto m-4">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold">Complete Your Subscription</h2>
           <button 
-            onClick={closePaymentDialog}
+            onClick={() => setShowPaymentDialog(false)}
             className="p-1 rounded-full hover:bg-gray-100"
           >
             <X className="h-5 w-5" />
@@ -60,98 +72,102 @@ const PlanCard = ({ plan }) => {
           </div>
         </div>
 
-        <div className="mb-6">
-          <div className="flex mb-4 border-b">
+        {/* <div className="mb-6">
+          <div className="flex flex-wrap mb-4 border-b gap-4 justify-between">
             <PaymentMethodTab 
               id="offline" 
-              title="Offline Payment" 
+              title="Offline" 
               active={activePaymentMethod === 'offline'} 
-              onClick={handlePaymentMethodChange} 
+              onClick={setActivePaymentMethod} 
             />
             <PaymentMethodTab 
               id="stripe" 
               title="Stripe" 
               active={activePaymentMethod === 'stripe'} 
-              onClick={handlePaymentMethodChange} 
+              onClick={setActivePaymentMethod} 
             />
             <PaymentMethodTab 
               id="paypal" 
               title="PayPal" 
               active={activePaymentMethod === 'paypal'} 
-              onClick={handlePaymentMethodChange} 
+              onClick={setActivePaymentMethod} 
             />
             <PaymentMethodTab 
               id="razorpay" 
               title="Razorpay" 
               active={activePaymentMethod === 'razorpay'} 
-              onClick={handlePaymentMethodChange} 
+              onClick={setActivePaymentMethod} 
             />
           </div>
 
-          {activePaymentMethod === 'offline' && (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                <input type="text" className="w-full p-2 border rounded-md" placeholder="Payment Title" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                <textarea className="w-full p-2 border rounded-md" rows="3" placeholder="Payment Description"></textarea>
-              </div>
-            </div>
-          )}
+          <div className="p-4 bg-gray-50 rounded-lg">
+            <p className="text-sm text-gray-600 text-center">
+              {activePaymentMethod === 'offline' && 
+                "Please contact our support team for offline payment instructions."}
+              {activePaymentMethod === 'stripe' && 
+                "You'll be redirected to Stripe to complete your payment securely."}
+              {activePaymentMethod === 'paypal' && 
+                "You'll be redirected to PayPal to complete your payment."}
+              {activePaymentMethod === 'razorpay' && 
+                "You'll be redirected to Razorpay to complete your payment."}
+            </p>
+          </div>
+        </div> */}
 
-          {activePaymentMethod === 'stripe' && (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Stripe ID</label>
-                <input type="text" className="w-full p-2 border rounded-md" placeholder="Enter Stripe ID" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">API Keys</label>
-                <input type="text" className="w-full p-2 border rounded-md" placeholder="Enter API Keys" />
-              </div>
-            </div>
-          )}
+<div className="mb-6">
+  <div className="flex flex-wrap mb-4 border-b gap-4 justify-between">
+    <PaymentMethodTab 
+      id="offline" 
+      title={<><FaMoneyBillAlt className="inline mr-4" />Offline</>} 
+      active={activePaymentMethod === 'offline'} 
+      onClick={setActivePaymentMethod} 
+    />
+    <PaymentMethodTab 
+      id="stripe" 
+      title={<><FaStripeS className="inline mr-4" />Stripe</>} 
+      active={activePaymentMethod === 'stripe'} 
+      onClick={setActivePaymentMethod} 
+    />
+    <PaymentMethodTab 
+      id="paypal" 
+      title={<><FaPaypal className="inline mr-4" />PayPal</>} 
+      active={activePaymentMethod === 'paypal'} 
+      onClick={setActivePaymentMethod} 
+    />
+    <PaymentMethodTab 
+      id="razorpay" 
+      title={<><SiRazorpay className="inline mr-4" />Razorpay</>} 
+      active={activePaymentMethod === 'razorpay'} 
+      onClick={setActivePaymentMethod} 
+    />
+  </div>
 
-          {activePaymentMethod === 'paypal' && (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">PayPal ID</label>
-                <input type="text" className="w-full p-2 border rounded-md" placeholder="Enter PayPal ID" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">API Keys</label>
-                <input type="text" className="w-full p-2 border rounded-md" placeholder="Enter API Keys" />
-              </div>
-            </div>
-          )}
+  <div className="p-4 bg-gray-50 rounded-lg">
+    <p className="text-sm text-gray-600 text-center">
+      {activePaymentMethod === 'offline' && 
+        "Please contact our support team for offline payment instructions."}
+      {activePaymentMethod === 'stripe' && 
+        "You'll be redirected to Stripe to complete your payment securely."}
+      {activePaymentMethod === 'paypal' && 
+        "You'll be redirected to PayPal to complete your payment."}
+      {activePaymentMethod === 'razorpay' && 
+        "You'll be redirected to Razorpay to complete your payment."}
+    </p>
+  </div>
+</div>
 
-          {activePaymentMethod === 'razorpay' && (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Razorpay ID</label>
-                <input type="text" className="w-full p-2 border rounded-md" placeholder="Enter Razorpay ID" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">API Keys</label>
-                <input type="text" className="w-full p-2 border rounded-md" placeholder="Enter API Keys" />
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="flex space-x-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button 
-            onClick={closePaymentDialog}
+            onClick={() => setShowPaymentDialog(false)}
             className="flex-1 py-3 px-4 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors"
           >
             Cancel
           </button>
           <button 
-            className="flex-1 py-3 px-4 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition-colors"
+            className="flex-1 py-3 px-4 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center gap-2"
           >
-            Complete Payment
+            <CreditCard className="w-5 h-5" />
+            Pay ${plan.price}
           </button> 
         </div>
       </div>
@@ -159,11 +175,8 @@ const PlanCard = ({ plan }) => {
   );
 
   return (
-    <>
-    
-    <div className="bg-white rounded-xl overflow-hidden border border-gray-100 transition-transform duration-300 hover:transform hover:scale-102 hover:shadow-sm">
-
-      <div className="bg-gradient-to-r from-primary-400 to-primary-500 p-6">
+    <div className="bg-white rounded-xl overflow-hidden border border-gray-100 transition-transform duration-300 hover:shadow-lg">
+      <div className="bg-primary-400 p-6">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-white">{plan.name}</h2>
           <div className="flex items-baseline">
@@ -171,7 +184,26 @@ const PlanCard = ({ plan }) => {
             <span className="text-3xl font-bold text-white ml-1">{plan.price}</span>
           </div>
         </div>
-        <p className="text-white text-opacity-90 mt-2">{plan.description}</p>
+        <div className="relative mt-2">
+          <p className={clsx(
+            "text-white text-opacity-90",
+            !isDescriptionExpanded && "line-clamp-2"
+          )}>
+            {plan.description}
+          </p>
+          {plan.description.length > 80 && (
+            <button
+              onClick={toggleDescription}
+              className="text-white text-opacity-90 hover:text-opacity-100 flex items-center gap-1 mt-1"
+            >
+              {isDescriptionExpanded ? (
+                <>Show Less <ChevronUp className="w-4 h-4" /></>
+              ) : (
+                <>Read More <ChevronDown className="w-4 h-4" /></>
+              )}
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="p-6">
@@ -218,7 +250,7 @@ const PlanCard = ({ plan }) => {
         </div>
 
         <button
-          onClick={openPaymentDialog}
+          onClick={() => setShowPaymentDialog(true)}
           className="w-full py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center gap-2"
         >
           <CreditCard className="w-5 h-5" />
@@ -230,9 +262,9 @@ const PlanCard = ({ plan }) => {
           <span>Secure payment</span>
         </div>
       </div>
+
+      {showPaymentDialog && <PaymentDialog />}
     </div>
-    {showPaymentDialog && <PaymentDialog />}
-    </>
   );
 };
 

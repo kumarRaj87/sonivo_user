@@ -1,6 +1,13 @@
+
+
 import React, { useState, useEffect } from "react";
 import PlanCard from "./PlanCard";
-import Loader from "../components/loader/Loader";
+
+const Loader = () => (
+  <div className="flex items-center justify-center min-h-[50vh]">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-500"></div>
+  </div>
+);
 
 const PlansContainer = () => {
   const [plans, setPlans] = useState([]);
@@ -57,9 +64,8 @@ const PlansContainer = () => {
   useEffect(() => {
     setTimeout(() => {
       setPlans(mockPlans);
-      setLoading(false)
-    }
-      , 300);
+      setLoading(false);
+    }, 300);
   }, []);
 
   if (loading) {
@@ -67,18 +73,18 @@ const PlansContainer = () => {
   }
 
   return (
-    <div className="min-h-[50vh] bg-primary-200 p-2 w-full">
-      <div className="flex flex-col items-center justify-between mb-8">
+    <div className="min-h-[50vh] bg-primary-200 p-4 md:p-6 w-full">
+      <div className="flex flex-col items-center justify-between mb-8 max-w-7xl mx-auto">
         <div className="flex justify-start items-center w-full">
           <img
             src="https://sonivo.oneoftheprojects.com/assets/plan.svg"
-            alt=""
-            className="h-24 w-24"
+            alt="Plans"
+            className="h-16 md:h-24 w-16 md:w-24"
           />
         </div>
-        <div className="w-full justify-between items-center flex">
-          <div className="space-y-2 flex flex-col">
-            <h1 className="text-2xl font-medium text-primary"> Plans</h1>
+        <div className="w-full justify-between items-center flex mt-4">
+          <div className="space-y-2">
+            <h1 className="text-xl md:text-2xl font-medium text-primary">Plans</h1>
             <div className="flex items-center gap-2 text-xs text-gray-400">
               <span>Dashboard</span>
               <span>•</span>
@@ -88,12 +94,9 @@ const PlansContainer = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {plans.map((plan) => (
-          <PlanCard
-            key={plan.id}
-            plan={plan}
-          />
+          <PlanCard key={plan.id} plan={plan} />
         ))}
       </div>
     </div>
