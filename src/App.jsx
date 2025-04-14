@@ -30,17 +30,8 @@ function App() {
     }
   }, [isAuthenticated]);
 
-  const handleLogin = (email, password) => {
-    if (email === 'user@yopmail.com' && password === 'Test@123') {
-      localStorage.setItem('isAuthenticated', 'true');
-      setIsAuthenticated(true);
-      return true;
-    }
-    return false;
-  };
-
   const handleLogout = () => {
-    localStorage.removeItem('isAuthenticated');
+    localStorage.clear();
     setIsAuthenticated(false);
     toast.success("loggedout successfully!")
   };
@@ -49,7 +40,7 @@ function App() {
     <Routes>
       <Route
         path="/login"
-        element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login onLogin={handleLogin} />}
+        element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login setIsAuthenticated={setIsAuthenticated} />}
       />
 
       <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
