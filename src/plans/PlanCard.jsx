@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Check, X, Phone, Smartphone, Clock, Trash2, Edit } from 'lucide-react';
+import { Check, X, Phone, Smartphone, Clock } from 'lucide-react';
 
-const PlanCard = ({ plan, onEdit, onDelete }) => {
+const PlanCard = ({ plan }) => {
   const getIcon = (feature) => {
     return feature ? <Check className="w-5 h-5 text-green-500" /> : <X className="w-5 h-5 text-red-500" />;
   };
@@ -13,20 +13,6 @@ const PlanCard = ({ plan, onEdit, onDelete }) => {
         <div className="flex items-center gap-2">
           <span className="text-yellow-500 text-2xl">$</span>
           <h2 className="text-2xl font-semibold">{plan.name} / {plan.price}</h2>
-        </div>
-        <div className="flex gap-2">
-          <button 
-            onClick={() => onEdit(plan)}
-            className="text-primary-400 hover:text-primary-500 flex items-center gap-2 p-2 rounded-lg border border-primary-500 hover:bg-blue-50"
-          >
-            <Edit className="w-4 h-4" />
-          </button>
-          <button 
-            onClick={() => onDelete(plan.id)}
-            className="text-red-500 hover:text-red-700 flex items-center gap-2 p-2 rounded-lg border border-red-500 hover:bg-red-50"
-          >
-            <Trash2 className="w-4 h-4" />
-          </button>
         </div>
       </div>
 

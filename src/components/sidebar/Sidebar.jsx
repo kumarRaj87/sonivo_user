@@ -7,6 +7,7 @@ import { MdWifiCalling3 } from "react-icons/md";
 import { IoMdMail } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
 import { MdOutlineSupportAgent } from "react-icons/md";
+import { AiOutlineDollar } from "react-icons/ai";
 import {
     Contact,
     ArrowDownUp
@@ -32,12 +33,15 @@ const Sidebar = () => {
         { path: '/phone-book', icon: Contact, label: 'Phonebook' },
         { path: '/callflow', icon: ArrowDownUp, label: 'Call flow builder' },
         { path: '/callflow-capture', icon: FaSave, label: 'Call flow capture' },
+        { divider: true, label: 'Plans' },
+        { path: '/plans', icon: AiOutlineDollar, label: 'Plans' },
         { divider: true, label: 'Agent Management' },
         { path: '/create-agent', icon: MdOutlineSupportAgent, label: 'Create agent' },
         { path: '/call-force', icon: TbArrowFork, label: 'Call Force' },
         { path: '/incoming-agent', icon: TbPhoneRinging, label: 'Agent Incoming Calls' },
         { divider: true, label: 'Config' },
-        { path: '/device-manager', icon: PiPhonePlusBold, label: 'Device Manager' },
+        { path: '/device-manager', icon: PiPhonePlusBold, label: 'Device Manager' }
+
     ]
 
     const isActive = (path) => {

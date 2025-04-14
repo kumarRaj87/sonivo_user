@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
 import PlanCard from "./PlanCard";
-import EditPlanModal from "./EditPlanModal";
-import CreatePlanModal from "./CreatePlanModal";
 import { IoMdPhonePortrait } from "react-icons/io";
 import Loader from "../components/loader/Loader";
 
 const PlansContainer = () => {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [editingPlan, setEditingPlan] = useState(null);
-  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
   const mockPlans = [
     {
       id: 1,
       name: "Trial",
-      price: "NA",
+      price: "49",
       description:
         "Experience all premium features with our 7-day free trial, no commitment required. Dive into our tools and see how they elevate your workflow!",
       dialer: true,
@@ -71,23 +67,6 @@ const PlansContainer = () => {
     return <Loader />;
   }
 
-  const handleEdit = (plan) => {
-    setEditingPlan(plan);
-  };
-
-  const handleSave = (updatedPlan) => {
-    setPlans(plans.map((p) => (p.id === updatedPlan.id ? updatedPlan : p)));
-    setEditingPlan(null);
-  };
-
-  const handleDelete = (planId) => {
-    setPlans(plans.filter((p) => p.id !== planId));
-  };
-
-  const handleCreatePlan = (newPlan) => {
-    setPlans([...plans, newPlan]);
-  };
-
   return (
     <div className="min-h-[50vh] bg-primary-200 p-2 w-full">
       <div className="flex flex-col items-center justify-between mb-8">
@@ -100,20 +79,13 @@ const PlansContainer = () => {
         </div>
         <div className="w-full justify-between items-center flex">
           <div className="space-y-2 flex flex-col">
-            <h1 className="text-2xl font-medium text-primary"> Call Force</h1>
+            <h1 className="text-2xl font-medium text-primary"> Plans</h1>
             <div className="flex items-center gap-2 text-xs text-gray-400">
               <span>Dashboard</span>
               <span>•</span>
-              <span> Call Force</span>
+              <span>Plans</span>
             </div>
           </div>
-          <button
-            onClick={() => setIsCreateModalOpen(true)}
-            className="text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
-          >
-            <IoMdPhonePortrait className="text-background" size={20} />
-            Create Plan
-          </button>
         </div>
       </div>
 
@@ -122,26 +94,9 @@ const PlansContainer = () => {
           <PlanCard
             key={plan.id}
             plan={plan}
-            onEdit={() => handleEdit(plan)}
-            onDelete={handleDelete}
           />
         ))}
       </div>
-
-      {editingPlan && (
-        <EditPlanModal
-          plan={editingPlan}
-          onClose={() => setEditingPlan(null)}
-          onSave={handleSave}
-        />
-      )}
-
-      {isCreateModalOpen && (
-        <CreatePlanModal
-          onClose={() => setIsCreateModalOpen(false)}
-          onSave={handleCreatePlan}
-        />
-      )}
     </div>
   );
 };
