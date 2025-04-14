@@ -74,7 +74,7 @@ const PlansContainer = () => {
 
   return (
     <div className="min-h-[50vh] bg-primary-200 p-4 md:p-6 w-full">
-      <div className="flex flex-col items-center justify-between mb-8 max-w-7xl mx-auto">
+      <div className="flex flex-col items-center justify-between mb-8 w-full">
         <div className="flex justify-start items-center w-full">
           <img
             src="https://sonivo.oneoftheprojects.com/assets/plan.svg"
@@ -94,7 +94,7 @@ const PlansContainer = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
         {plans.map((plan) => (
           <PlanCard key={plan.id} plan={plan} />
         ))}
