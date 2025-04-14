@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PlanCard from "./PlanCard";
-import { IoMdPhonePortrait } from "react-icons/io";
 import Loader from "../components/loader/Loader";
 
 const PlansContainer = () => {
