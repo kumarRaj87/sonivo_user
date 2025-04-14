@@ -55,7 +55,7 @@ const PrepareDevice = () => {
         {isExpanded && (
           <div className="p-4 border-t">
             {/* Tabs */}
-            <div className="flex gap-3 mb-6">
+            <div className="flex flex-col md:flex-row gap-3 mb-6">
               <button
                 className={`flex items-center gap-2 px-4 py-2 rounded-full border ${activeTab === 'flow'
                   ? 'bg-green-50 border-green-100 text-green-600'
@@ -101,7 +101,7 @@ const PrepareDevice = () => {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm text-gray-600 mb-1">Webhook:</label>
-                  <div className="bg-green-50 text-green-700 px-3 py-2 rounded">
+                  <div className="bg-green-50 text-green-700 px-3 py-2 w-full overflow-x-auto rounded">
                     https://sonivo.oneoftheprojects.com/api/ivr/gather/viWiz
                   </div>
                 </div>
@@ -116,7 +116,7 @@ const PrepareDevice = () => {
 
             {/* Broadcast Tab Content */}
             {activeTab === 'broadcast' && (
-              <div>
+              <div className='w-full'>
                 <label className="block text-sm text-gray-600 mb-1">Select flow</label>
                 <select className="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
                   <option>Testing flow</option>
@@ -129,13 +129,13 @@ const PrepareDevice = () => {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm text-gray-600 mb-1">Webhook:</label>
-                  <div className="bg-green-50 text-green-700 px-3 py-2 rounded">
+                  <div className="bg-green-50 text-green-700 px-3 py-2 rounded w-full overflow-x-auto">
                     https://sonivo.oneoftheprojects.com/api/ivr/gather/viWiz
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm text-gray-600 mb-1">TwiML Webhook:</label>
-                  <div className="bg-green-50 text-green-700 px-3 py-2 rounded">
+                  <div className="bg-green-50 text-green-700 px-3 py-2 rounded w-full overflow-x-auto">
                     https://sonivo.oneoftheprojects.com/api/call/voice/viWiz
                   </div>
                 </div>

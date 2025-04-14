@@ -80,7 +80,7 @@ const FlowCapture = () => {
             className='h-24 w-24'
           />
         </div>
-        <div className='w-full justify-between items-center flex'>
+        <div className='w-full sm:justify-between justify-start sm:items-center items-start sm:flex-row flex flex-col'>
           <div className='space-y-2 flex flex-col'>
             <h1 className="text-2xl font-medium text-primary"> Call flow capture</h1>
             <div className="flex items-center gap-2 text-xs text-gray-400">

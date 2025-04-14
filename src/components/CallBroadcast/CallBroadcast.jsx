@@ -85,7 +85,7 @@ const CallBroadcast = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
+    setTimeout(() => setLoading(false), 300);
   }, []);
 
   if (loading) {
@@ -95,15 +95,15 @@ const CallBroadcast = () => {
   return (
 
     <div className="min-h-[50vh] bg-primary-200 w-full">
-      <div className="flex  items-center justify-between mb-8 lg:flex-col">
-        <div className="flex justify-start items-center w-full ">
+      <div className="flex flex-col items-center justify-between mb-8">
+        <div className="flex justify-start items-center w-full">
           <img
             src='https://sonivo.oneoftheprojects.com/assets/call_broadcast.svg'
             alt=''
             className='h-24 w-24'
           />
         </div>
-        <div className='w-full justify-between items-center flex'>
+        <div className='w-full sm:justify-between justify-start sm:items-center items-start sm:flex-row flex flex-col'>
 
           <div className='space-y-2 flex flex-col'>
             <h1 className="text-2xl font-medium text-primary"> Call Broadcast</h1>
@@ -115,7 +115,7 @@ const CallBroadcast = () => {
           </div>
           <button
             onClick={() => setShowCampaignModal(true)}
-            className="text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
+            className="text-sm self-end bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
           >
             Set Campaign
           </button>
