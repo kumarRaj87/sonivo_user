@@ -48,12 +48,12 @@ const PlanCard = ({ plan }) => {
 
   const PaymentDialog = () => (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[6500]">
-      <div className="bg-background rounded-lg shadow-xl w-full max-w-md p-6 max-h-[90vh] overflow-y-auto m-4">
+      <div className="bg-background rounded-2xl shadow-xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto hide-scrollbar m-4">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold">Complete Your Subscription</h2>
           <button
             onClick={() => setShowPaymentDialog(false)}
-            className="p-1 rounded-full hover:bg-gray-100"
+            className="p-3 rounded-full hover:bg-gray-100"
           >
             <X className="h-5 w-5" />
           </button>
