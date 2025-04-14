@@ -161,7 +161,7 @@ const PlanCard = ({ plan }) => {
   return (
     <>
     
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transition-transform duration-300 hover:transform hover:scale-102 hover:shadow-xl">
+    <div className="bg-white rounded-xl overflow-hidden border border-gray-100 transition-transform duration-300 hover:transform hover:scale-102 hover:shadow-sm">
 
       <div className="bg-gradient-to-r from-primary-400 to-primary-500 p-6">
         <div className="flex justify-between items-center">

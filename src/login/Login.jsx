@@ -119,8 +119,8 @@ function Login({ setIsAuthenticated }) {
   return (
     <div className="min-h-screen bg-primary-200 flex flex-col items-center justify-center p-4">
       <div className="w-full sm:w-[80%] md:w-[550px] bg-background p-10 rounded-lg">
-      <div className="py-5  items-center px-4 text-center flex justify-center w-full">
-      <span className="text-2xl font-semibold text-[#1C2833] items-center text-center">Vokal</span>
+        <div className="items-center mb-4 text-center flex justify-center w-full">
+          <p className="text-2xl xl:text-3xl font-semibold text-primary items-center text-center">Vokal</p>
         </div>
 
         <div className="mb-8 text-start">
