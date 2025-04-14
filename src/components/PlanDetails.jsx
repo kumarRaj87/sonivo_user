@@ -15,7 +15,7 @@ const PlanDetails = () => {
           <BsGift className="text-2xl text-primary" />
           <span className="text-xl font-medium">Gold</span>
         </div>
-
+ 
         <div className="flex items-baseline gap-1 mb-6">
           <span className="text-3xl font-bold">$99</span>
           <span className="text-gray-600">/ 1 month(s)</span>
