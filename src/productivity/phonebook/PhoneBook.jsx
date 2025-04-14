@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { IoMdClose } from 'react-icons/io';
 import { Plus, FileText, Download, Trash2 } from 'lucide-react';
 import ContactModal from './ContactModal';
-import Loader from '../../loader/Loader';
+import Loader from '../../components/loader/Loader';
 
 const PhoneBook = () => {
     const [showAddphonebook, setShowAddphonebook] = useState(false);

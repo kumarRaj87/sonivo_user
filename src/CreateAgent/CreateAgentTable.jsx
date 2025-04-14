@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddAgentModal from './AddAgentModal';
 import { IoPersonAddSharp } from 'react-icons/io5';
-import Loader from '../../loader/Loader';
+import Loader from '../components/loader/Loader';
 import { toast } from 'sonner';
 
 export default function CreateAgentTable() {

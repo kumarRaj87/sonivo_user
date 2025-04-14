@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { EllipsisVerticalIcon, ChevronLeftIcon, ChevronRightIcon, TrashIcon } from '@heroicons/react/24/outline';
-import Loader from '../../loader/Loader';
+import Loader from '../../components/loader/Loader';
 
 const staticData = [
   {

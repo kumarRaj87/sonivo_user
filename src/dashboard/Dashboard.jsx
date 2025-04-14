@@ -20,7 +20,7 @@ import {
   ArrowDownUp
 } from 'lucide-react'
 import { useEffect, useState } from 'react';
-import Loader from '../loader/Loader';
+import Loader from '../components/loader/Loader';
 
 ChartJS.register(
   CategoryScale,

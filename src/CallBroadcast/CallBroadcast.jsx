@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IoMdClose } from "react-icons/io";
 import { FaRegCalendarAlt } from "react-icons/fa";
-import Loader from '../../loader/Loader';
+import Loader from '../components/loader/Loader';
 
 const CallBroadcast = () => {
   const [showCampaignModal, setShowCampaignModal] = useState(false);

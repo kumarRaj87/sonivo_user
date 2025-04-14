@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Loader from '../loader/Loader';
+import Loader from '../components/loader/Loader';
 
 const NotFound = () => {
   const navigate = useNavigate();

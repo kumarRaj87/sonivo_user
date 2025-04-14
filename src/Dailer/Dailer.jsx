@@ -4,7 +4,7 @@ import { IoMdClose } from 'react-icons/io';
 import { MdOutlinePhoneIphone } from 'react-icons/md';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdPhonePortrait } from "react-icons/io";
-import Loader from '../../loader/Loader';
+import Loader from '../components/loader/Loader';
 
 const Dailer = () => {
   const [showDeviceModal, setShowDeviceModal] = useState(false);

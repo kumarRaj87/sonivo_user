@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import Loader from "../components/loader/Loader";
+
 const mockData = [
   {
     id: 1,
@@ -72,31 +75,45 @@ const mockData = [
 ];
 
 export default function AgentIncomingCallsTable() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 300);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div className="min-h-[50vh] bg-primary-200 w-full">
-      {/* Header Section */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-        <div className="flex items-center gap-4 w-full sm:w-auto  lg:flex-col">
+
+      <div className="flex flex-col items-center justify-between mb-8">
+        <div className="flex justify-start items-center w-full">
           <img
             src='https://sonivo.oneoftheprojects.com/assets/agent_incoming.svg'
             alt=''
-            className='h-16 w-16 sm:h-24 sm:w-24'
+            className='h-24 w-24'
           />
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Agent Incoming Calls</h2>
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
+        </div>
+        <div className='w-full sm:justify-between justify-start sm:items-center items-start sm:flex-row flex flex-col'>
+
+          <div className='space-y-2 flex flex-col'>
+            <h1 className="text-2xl font-medium text-primary"> Agent Incoming Calls</h1>
+            <div className="flex items-center gap-2 text-xs text-gray-400">
               <span>Dashboard</span>
               <span>•</span>
-              <span>Agent Incoming Calls</span>
+              <span> Agent Incoming Calls</span>
             </div>
           </div>
+          <button
+            className="text-sm self-end bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            <span className="whitespace-nowrap">Export</span>
+          </button>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors w-full sm:w-auto justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-          </svg>
-          <span className="whitespace-nowrap">Export</span>
-        </button>
       </div>
 
       {/* Table Section */}
@@ -128,9 +145,8 @@ export default function AgentIncomingCallsTable() {
                     <a href={`tel:${row.callTo}`} className="text-blue-500 hover:text-blue-700">{row.callTo}</a>
                   </td>
                   <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      row.callDuration === '00:00' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
-                    }`}>
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${row.callDuration === '00:00' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
+                      }`}>
                       {row.callDuration}
                     </span>
                   </td>
@@ -157,9 +173,8 @@ export default function AgentIncomingCallsTable() {
                     <h3 className="text-lg font-medium text-gray-900">{row.agent}</h3>
                     <p className="text-sm text-gray-500">{row.device}</p>
                   </div>
-                  <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
-                    row.callDuration === '00:00' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
-                  }`}>
+                  <span className={`px-2 py-1 text-xs font-semibold rounded-full ${row.callDuration === '00:00' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
+                    }`}>
                     {row.callDuration}
                   </span>
                 </div>

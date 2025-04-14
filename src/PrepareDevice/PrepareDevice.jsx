@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { IoCheckmarkCircle } from 'react-icons/io5';
-import Loader from '../../loader/Loader';
+import Loader from '../components/loader/Loader';
 
 const PrepareDevice = () => {
   const [isExpanded, setIsExpanded] = useState(true);

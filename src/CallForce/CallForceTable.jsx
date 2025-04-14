@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddCallTaskModal from './AddCallTaskModal';
 import CallForceSummaryModal from './CallForceSummaryModal';
 import { LuCircleCheckBig } from "react-icons/lu";
+import Loader from '../components/loader/Loader';
 
 const mockData = [
   {
@@ -25,7 +26,15 @@ const mockData = [
 export default function CallForceTable() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 300);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div className="min-h-[50vh] bg-primary-200 w-full">
       {/* Header Section */}
