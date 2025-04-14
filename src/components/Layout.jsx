@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar'
+import Sidebar from './sidebar/Sidebar'
 import Navbar from './Navbar'
 import { Outlet } from 'react-router-dom'
 import MobileSidebar from './sidebar/MobileSidebar';

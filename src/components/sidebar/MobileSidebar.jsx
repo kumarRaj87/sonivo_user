@@ -7,6 +7,7 @@ import { MdWifiCalling3 } from "react-icons/md";
 import { IoMdMail } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
 import { MdOutlineSupportAgent } from "react-icons/md";
+import { AiOutlineDollar } from "react-icons/ai";
 import {
     Contact,
     ArrowDownUp
@@ -31,6 +32,8 @@ const MobileSidebar = ({ isOpen, onClose }) => {
         { path: '/phone-book', icon: Contact, label: 'Phonebook' },
         { path: '/callflow', icon: ArrowDownUp, label: 'Call flow builder' },
         { path: '/callflow-capture', icon: FaSave, label: 'Call flow capture' },
+        { divider: true, label: 'Plans' },
+        { path: '/plans', icon: AiOutlineDollar, label: 'Plans' },
         { divider: true, label: 'Agent Management' },
         { path: '/create-agent', icon: MdOutlineSupportAgent, label: 'Create agent' },
         { path: '/call-force', icon: TbArrowFork, label: 'Call Force' },
@@ -46,25 +49,19 @@ const MobileSidebar = ({ isOpen, onClose }) => {
     return (
         <>
             {isOpen && (
-                <div 
+                <div
                     className="fixed inset-0 bg-black bg-opacity-50 z-[5500]"
                     onClick={onClose}
                 />
             )}
-            
-            <aside 
-                className={`block lg:hidden z-[6000] fixed inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out ${
-                    isOpen ? 'translate-x-0' : '-translate-x-full'
-                }`}
+
+            <aside
+                className={`block lg:hidden z-[6000] fixed inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                    }`}
             >
-                <div className="h-20 flex items-center px-4">
-                    <Link to="/dashboard" className="flex items-center space-x-2">
-                        <img
-                            src="https://sonivo.oneoftheprojects.com/media/p3v6PjgmKVqXnG3pg1ivUTHmox7o1a3E.png"
-                            alt="Logo"
-                            className="h-12"
-                        />
-                        <span className="text-xl font-semibold text-[#1C2833] flex items-end justify-start w-full h-12">Sonivo ai</span>
+                <div className="py-5 flex items-center px-4">
+                    <Link to="/dashboard" className="flex items-center space-x-2 pl-2">
+                        <span className="text-2xl font-semibold text-[#1C2833]">Vokal</span>
                     </Link>
                 </div>
 

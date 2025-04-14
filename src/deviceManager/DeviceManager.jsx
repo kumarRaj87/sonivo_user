@@ -2,7 +2,7 @@ import { Plus } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { FaSave } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
-import Loader from '../loader/Loader';
+import Loader from '../components/loader/Loader';
 import DevicesList from './DevicesList';
 
 const DeviceManager = () => {

@@ -6,7 +6,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdPhonePortrait } from "react-icons/io";
 import Loader from '../components/loader/Loader';
 
-const Messaging = () => {
+const Dailer = () => {
   const [showDeviceModal, setShowDeviceModal] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -21,9 +21,9 @@ const Messaging = () => {
   return (
     <div className="min-h-[50vh] bg-primary-200 w-full">
       <div className="flex flex-col items-center justify-between mb-8">
-        <div className="flex justify-start items-center w-full mb-2">
+        <div className="flex justify-start items-center w-full">
           <img
-            src='https://sonivo.oneoftheprojects.com/assets/message.svg'
+            src='https://sonivo.oneoftheprojects.com/assets/dialertitle.svg'
             alt=''
             className='h-24 w-24'
           />
@@ -31,11 +31,11 @@ const Messaging = () => {
         <div className='w-full sm:justify-between justify-start sm:items-center items-start sm:flex-row flex flex-col'>
 
           <div className='space-y-2 flex flex-col'>
-            <h1 className="text-2xl font-medium text-primary"> Messaging</h1>
+            <h1 className="text-2xl font-medium text-primary"> Device Manager</h1>
             <div className="flex items-center gap-2 text-xs text-gray-400">
               <span>Dashboard</span>
               <span>•</span>
-              <span> Messaging</span>
+              <span> Device Manager</span>
             </div>
           </div>
           <button
@@ -64,7 +64,7 @@ const Messaging = () => {
               >
                 <IoMdClose size={24} />
               </button>
-              <h2 className="text-lg font-medium">Select device</h2>
+              <h2 className="text-lg font-medium">Choose device</h2>
             </div>
 
             <div className="p-4">
@@ -94,4 +94,4 @@ const Messaging = () => {
   );
 };
 
-export default Messaging;
+export default Dailer;
