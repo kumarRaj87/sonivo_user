@@ -50,16 +50,12 @@ const Sidebar = () => {
  
     return (
         <aside className={`fixed hidden lg:block inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out`}>
-            <div className="h-20 flex items-center px-4">
-                <Link to="/dashboard" className="flex items-center space-x-2">
-                    <img
-                        src="https://sonivo.oneoftheprojects.com/media/p3v6PjgmKVqXnG3pg1ivUTHmox7o1a3E.png"
-                        alt="Logo"
-                        className="h-12"
-                    />
-                    <span className="text-xl font-semibold text-[#1C2833] flex items-end justify-start w-full h-12">Sonivo ai</span>
-                </Link>
-            </div>
+             <div className="py-5 flex items-center px-4">
+          <Link to="/dashboard" className="flex items-center space-x-2 pl-2">
+            <span className="text-2xl font-semibold text-[#1C2833]">Vokal</span>
+          </Link>
+        </div>
+
  
             <nav className="px-3 h-[88vh] overflow-y-auto pb-2">
                 {menuItems.map((item, index) => (

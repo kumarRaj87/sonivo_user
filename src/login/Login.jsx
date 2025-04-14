@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { IoEye } from "react-icons/io5";
@@ -119,13 +119,10 @@ function Login({ setIsAuthenticated }) {
   return (
     <div className="min-h-screen bg-primary-200 flex flex-col items-center justify-center p-4">
       <div className="w-full sm:w-[80%] md:w-[550px] bg-background p-10 rounded-lg">
-        <div className="mb-8 text-center">
-          <img
-            src="https://sonivo.oneoftheprojects.com/media/p3v6PjgmKVqXnG3pg1ivUTHmox7o1a3E.png"
-            alt="Logo"
-            className="h-12 mx-auto mb-12"
-          />
+      <div className="py-5  items-center px-4 text-center flex justify-center w-full">
+      <span className="text-2xl font-semibold text-[#1C2833] items-center text-center">Vokal</span>
         </div>
+
         <div className="mb-8 text-start">
           <h1 className="text-lg font-semibold text-primary mb-1">
             Start your free trial
