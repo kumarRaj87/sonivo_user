@@ -41,7 +41,7 @@ export default function CallForceTable() {
       <div className="flex flex-col items-center justify-between mb-8">
         <div className="flex justify-start items-center w-full">
           <img
-            src='https://sonivo.oneoftheprojects.com/assets/call_force.svg'
+            src='https://sonivo.oneoftheprojects.com/assets/plan.svg'
             alt=''
             className='h-24 w-24'
           />

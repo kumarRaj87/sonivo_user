@@ -12,14 +12,14 @@ import {
     Contact,
     ArrowDownUp
 } from 'lucide-react'
-
+ 
 import { TbArrowFork } from "react-icons/tb";
 import { TbPhoneRinging } from "react-icons/tb";
 import { PiPhonePlusBold } from "react-icons/pi";
-
+ 
 const Sidebar = () => {
     const location = useLocation()
-
+ 
     const menuItems = [
         { divider: true, label: 'Useful' },
         { path: '/dashboard', icon: MdSpaceDashboard, label: 'Dashboard' },
@@ -43,11 +43,11 @@ const Sidebar = () => {
         { path: '/device-manager', icon: PiPhonePlusBold, label: 'Device Manager' }
 
     ]
-
+ 
     const isActive = (path) => {
         return location.pathname === path
     }
-
+ 
     return (
         <aside className={`fixed hidden lg:block inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out`}>
             <div className="h-20 flex items-center px-4">
@@ -60,7 +60,7 @@ const Sidebar = () => {
                     <span className="text-xl font-semibold text-[#1C2833] flex items-end justify-start w-full h-12">Sonivo ai</span>
                 </Link>
             </div>
-
+ 
             <nav className="px-3 h-[88vh] overflow-y-auto pb-2">
                 {menuItems.map((item, index) => (
                     item.divider ? (
@@ -88,5 +88,5 @@ const Sidebar = () => {
         </aside>
     )
 }
-
+ 
 export default Sidebar
