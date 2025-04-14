@@ -152,7 +152,7 @@ const PlanCard = ({ plan }) => {
             className="flex-1 py-3 px-4 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition-colors"
           >
             Complete Payment
-          </button>
+          </button> 
         </div>
       </div>
     </div>
