@@ -7,7 +7,7 @@ const PlanCard = ({ plan }) => {
     return feature ? <Check className="w-5 h-5 text-green-500" /> : <X className="w-5 h-5 text-red-500" />;
   };
 
-  return (
+  return ( 
     <div className="bg-background rounded-lg p-6 mb-6">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
