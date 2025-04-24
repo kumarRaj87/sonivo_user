@@ -219,10 +219,10 @@ const DeviceManager = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
-        
+
         try {
             const authToken = localStorage.getItem('authToken');
-            
+
             const response = await axios.post(
                 'http://62.169.31.76:3000/user/add_device',
                 {
@@ -243,10 +243,9 @@ const DeviceManager = () => {
                     }
                 }
             );
-            
+
             toast.success('Device added successfully!');
             setShowDeviceMangerModal(false);
-            // Reset form fields
             setTitle("");
             setSid("");
             setToken("");
@@ -256,10 +255,7 @@ const DeviceManager = () => {
             setNum("");
             setStatus("active");
             setOther("");
-            
-            // You might want to refresh the devices list here
-            // For example, if DevicesList has a refresh function
-            
+
         } catch (error) {
             console.error('Error adding device:', error);
             toast.error(error.response?.data?.message || 'Failed to add device');
@@ -301,7 +297,7 @@ const DeviceManager = () => {
                     </button>
                 </div>
             </div>
-            <DevicesList/>
+            <DevicesList />
             {showDeviceMangerModal && (
                 <>
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999999]">
