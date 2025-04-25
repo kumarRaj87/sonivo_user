@@ -224,7 +224,7 @@ const DeviceManager = () => {
             const authToken = localStorage.getItem('authToken');
 
             const response = await axios.post(
-                'http://62.169.31.76:3000/user/add_device',
+                'https://vokal-api.oyelabs.com/user/add_device',
                 {
                     sid,
                     title,
