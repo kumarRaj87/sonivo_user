@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'sonner';
-import { MdOutlinePassword } from 'react-icons/md';
 import { IoEye } from 'react-icons/io5';
 import { IoMdEyeOff } from 'react-icons/io';
 
@@ -38,7 +37,7 @@ export default function AddAgentModal({ isOpen, onClose }) {
       }
 
       const response = await axios.post(
-        'http://62.169.31.76:3000/agent/add_agent',
+        'https://vokal-api.oyelabs.com/agent/add_agent',
         formData,
         {
           headers: {
