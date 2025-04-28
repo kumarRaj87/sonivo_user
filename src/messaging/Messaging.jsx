@@ -5,6 +5,7 @@ import { MdOutlinePhoneIphone } from 'react-icons/md';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdPhonePortrait } from "react-icons/io";
 import Loader from '../components/loader/Loader';
+import MessageContainer from './MessageContainer';
 
 const Messaging = () => {
   const [showDeviceModal, setShowDeviceModal] = useState(false);
@@ -90,6 +91,8 @@ const Messaging = () => {
           </div>
         </div>
       )}
+
+      <MessageContainer />
     </div>
   );
 };
