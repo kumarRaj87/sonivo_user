@@ -29,14 +29,15 @@ export default function CallForceTable() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [tasks, setTasks] = useState(mockData);
+  const [tasks, setTasks] = useState([]);
   const [selectedTaskId, setSelectedTaskId] = useState(null);
 
   const fetchTasks = async () => {
     try {
       const response = await callForceApi.getCallForceTasks();
       if (response.data) {
-        setTasks(response.data);
+        // setTasks(response.data);
+        setTasks(mockData)
       }
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -114,7 +115,7 @@ export default function CallForceTable() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {tasks.map((row) => (
+              { tasks.length > 0 && tasks?.map((row) => (
                 <tr key={row.id}>
                   <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{row.title}</td>
                   <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.agent}</td>

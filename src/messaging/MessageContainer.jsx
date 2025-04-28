@@ -59,128 +59,128 @@ export default function MessagingApp() {
     //   }
     // ];
     const sampleMessages = [
-        { 
-          id: 1, 
-          from: '+1234567890', 
-          content: "Hey there! Just checking in to see how you're doing today.", 
-          timestamp: new Date(2025, 3, 28, 10, 15), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 2, 
-          from: '+1987654321', 
-          content: 'The meeting has been rescheduled to tomorrow at 2 PM. Please confirm your availability.', 
-          timestamp: new Date(2025, 3, 28, 9, 30), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 3, 
-          from: '+1555123456', 
-          content: 'Your package has been delivered. Thank you for shopping with us!', 
-          timestamp: new Date(2025, 3, 27, 14, 45), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 4, 
-          to: '+1555123456', 
-          content: 'Thanks for the update. I received the package.', 
-          timestamp: new Date(2025, 3, 27, 15, 20), 
-          status: 'sent',
-          isTrash: false 
-        },
-        { 
-          id: 5, 
-          from: '+1444555666', 
-          content: 'Your appointment is confirmed for Friday at 11 AM.', 
-          timestamp: new Date(2025, 3, 26, 17, 10), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 6, 
-          from: '+1222333444', 
-          content: 'Reminder: Your bill payment is due in 2 days.', 
-          timestamp: new Date(2025, 3, 26, 12, 0), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 7, 
-          to: '+1222333444', 
-          content: 'Payment completed. Thanks for the reminder!', 
-          timestamp: new Date(2025, 3, 26, 12, 30), 
-          status: 'read',
-          isTrash: false 
-        },
-        { 
-          id: 8, 
-          from: '+1777888999', 
-          content: 'The team lunch is tomorrow at 1 PM. Bring your appetite!', 
-          timestamp: new Date(2025, 3, 25, 16, 45), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 9, 
-          from: '+1666777888', 
-          content: 'Your recent transaction of $50 was completed successfully.', 
-          timestamp: new Date(2025, 3, 25, 10, 20), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 10, 
-          from: '+1999888777', 
-          content: 'Weather alert: Thunderstorms expected this evening.', 
-          timestamp: new Date(2025, 3, 24, 18, 15), 
-          status: 'delivered',
-          isTrash: true 
-        },
-        { 
-          id: 11, 
-          to: '+1999888777', 
-          content: 'Thanks for the alert! Will stay indoors.', 
-          timestamp: new Date(2025, 3, 24, 18, 30), 
-          status: 'sent',
-          isTrash: false 
-        },
-        { 
-          id: 12, 
-          from: '+1333444555', 
-          content: 'Your subscription is about to renew. Reply STOP to cancel.', 
-          timestamp: new Date(2025, 3, 23, 9, 0), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 13, 
-          from: '+1888999000', 
-          content: 'Happy birthday! Enjoy your special day!', 
-          timestamp: new Date(2025, 3, 22, 0, 1), 
-          status: 'delivered',
-          isTrash: false 
-        },
-        { 
-          id: 14, 
-          to: '+1888999000', 
-          content: 'Thank you for the birthday wishes!', 
-          timestamp: new Date(2025, 3, 22, 10, 15), 
-          status: 'read',
-          isTrash: false 
-        },
-        { 
-          id: 15, 
-          from: '+1444333222', 
-          content: 'Your delivery is running 30 minutes late. We apologize for the inconvenience.', 
-          timestamp: new Date(2025, 3, 21, 14, 50), 
-          status: 'delivered',
-          isTrash: false 
-        }
-      ];
-    
+      {
+        id: 1,
+        from: '+1234567890',
+        content: "Hey there! Just checking in to see how you're doing today.",
+        timestamp: new Date(2025, 3, 28, 10, 15),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 2,
+        from: '+1987654321',
+        content: 'The meeting has been rescheduled to tomorrow at 2 PM. Please confirm your availability.',
+        timestamp: new Date(2025, 3, 28, 9, 30),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 3,
+        from: '+1555123456',
+        content: 'Your package has been delivered. Thank you for shopping with us!',
+        timestamp: new Date(2025, 3, 27, 14, 45),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 4,
+        to: '+1555123456',
+        content: 'Thanks for the update. I received the package.',
+        timestamp: new Date(2025, 3, 27, 15, 20),
+        status: 'sent',
+        isTrash: false
+      },
+      {
+        id: 5,
+        from: '+1444555666',
+        content: 'Your appointment is confirmed for Friday at 11 AM.',
+        timestamp: new Date(2025, 3, 26, 17, 10),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 6,
+        from: '+1222333444',
+        content: 'Reminder: Your bill payment is due in 2 days.',
+        timestamp: new Date(2025, 3, 26, 12, 0),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 7,
+        to: '+1222333444',
+        content: 'Payment completed. Thanks for the reminder!',
+        timestamp: new Date(2025, 3, 26, 12, 30),
+        status: 'read',
+        isTrash: false
+      },
+      {
+        id: 8,
+        from: '+1777888999',
+        content: 'The team lunch is tomorrow at 1 PM. Bring your appetite!',
+        timestamp: new Date(2025, 3, 25, 16, 45),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 9,
+        from: '+1666777888',
+        content: 'Your recent transaction of $50 was completed successfully.',
+        timestamp: new Date(2025, 3, 25, 10, 20),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 10,
+        from: '+1999888777',
+        content: 'Weather alert: Thunderstorms expected this evening.',
+        timestamp: new Date(2025, 3, 24, 18, 15),
+        status: 'delivered',
+        isTrash: true
+      },
+      {
+        id: 11,
+        to: '+1999888777',
+        content: 'Thanks for the alert! Will stay indoors.',
+        timestamp: new Date(2025, 3, 24, 18, 30),
+        status: 'sent',
+        isTrash: false
+      },
+      {
+        id: 12,
+        from: '+1333444555',
+        content: 'Your subscription is about to renew. Reply STOP to cancel.',
+        timestamp: new Date(2025, 3, 23, 9, 0),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 13,
+        from: '+1888999000',
+        content: 'Happy birthday! Enjoy your special day!',
+        timestamp: new Date(2025, 3, 22, 0, 1),
+        status: 'delivered',
+        isTrash: false
+      },
+      {
+        id: 14,
+        to: '+1888999000',
+        content: 'Thank you for the birthday wishes!',
+        timestamp: new Date(2025, 3, 22, 10, 15),
+        status: 'read',
+        isTrash: false
+      },
+      {
+        id: 15,
+        from: '+1444333222',
+        content: 'Your delivery is running 30 minutes late. We apologize for the inconvenience.',
+        timestamp: new Date(2025, 3, 21, 14, 50),
+        status: 'delivered',
+        isTrash: false
+      }
+    ];
+
     setMessages(sampleMessages);
   }, []);
 
@@ -199,24 +199,24 @@ export default function MessagingApp() {
 
   // Filter messages based on view and search
   const filteredMessages = messages.filter(message => {
-    const matchesSearch = message.content.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          (message.from && message.from.includes(searchQuery)) || 
-                          (message.to && message.to.includes(searchQuery));
-    return (view === 'inbox' && !message.isTrash && matchesSearch) || 
-           (view === 'trash' && message.isTrash && matchesSearch);
+    const matchesSearch = message.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (message.from && message.from.includes(searchQuery)) ||
+      (message.to && message.to.includes(searchQuery));
+    return (view === 'inbox' && !message.isTrash && matchesSearch) ||
+      (view === 'trash' && message.isTrash && matchesSearch);
   });
 
   // Message actions
   const moveToTrash = () => {
-    setMessages(messages.map(msg => 
-      selectedMessages.includes(msg.id) ? {...msg, isTrash: true} : msg
+    setMessages(messages.map(msg =>
+      selectedMessages.includes(msg.id) ? { ...msg, isTrash: true } : msg
     ));
     setSelectedMessages([]);
   };
 
   const restoreFromTrash = () => {
-    setMessages(messages.map(msg => 
-      selectedMessages.includes(msg.id) ? {...msg, isTrash: false} : msg
+    setMessages(messages.map(msg =>
+      selectedMessages.includes(msg.id) ? { ...msg, isTrash: false } : msg
     ));
     setSelectedMessages([]);
   };
@@ -254,7 +254,7 @@ export default function MessagingApp() {
       'Your account has been updated successfully.'
     ];
     const randomMessage = messageTemplates[Math.floor(Math.random() * messageTemplates.length)];
-    
+
     const newMsg = {
       id: messages.length + 1,
       from: randomSender,
@@ -263,7 +263,7 @@ export default function MessagingApp() {
       status: 'delivered',
       isTrash: false
     };
-    
+
     setMessages([...messages, newMsg]);
   };
 
@@ -279,7 +279,7 @@ export default function MessagingApp() {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 1);
-    
+
     if (date.toDateString() === today.toDateString()) {
       return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     } else if (date.toDateString() === yesterday.toDateString()) {
@@ -301,7 +301,7 @@ export default function MessagingApp() {
 
   return (
     <div className="h-screen bg-gray-100 flex flex-col">
-      {/* Header */} 
+      {/* Header */}
       <header className="bg-primary-500 text-white p-4 shadow-md rounded-md mt-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
@@ -329,22 +329,22 @@ export default function MessagingApp() {
       {/* Mobile menu */}
       {isMobileView && isMobileMenuOpen && (
         <div className="bg-white shadow-md p-4 absolute top-16 right-0 z-10 w-48">
-          <button 
-            onClick={() => { setView('inbox'); setIsMobileMenuOpen(false); }} 
+          <button
+            onClick={() => { setView('inbox'); setIsMobileMenuOpen(false); }}
             className="flex items-center space-x-2 p-2 w-full text-left hover:bg-gray-100 rounded"
           >
             <Inbox size={18} />
             <span>Inbox</span>
           </button>
-          <button 
-            onClick={() => { setView('trash'); setIsMobileMenuOpen(false); }} 
+          <button
+            onClick={() => { setView('trash'); setIsMobileMenuOpen(false); }}
             className="flex items-center space-x-2 p-2 w-full text-left hover:bg-gray-100 rounded"
           >
             <Trash2 size={18} />
             <span>Trash</span>
           </button>
-          <button 
-            onClick={receiveMessage} 
+          <button
+            onClick={receiveMessage}
             className="flex items-center space-x-2 p-2 w-full text-left hover:bg-gray-100 rounded"
           >
             <MessageSquare size={18} />
@@ -361,22 +361,22 @@ export default function MessagingApp() {
             {/* Sidebar navigation */}
             {!isMobileView && (
               <div className="p-4 mt-2">
-                <button 
-                  onClick={() => setView('inbox')} 
+                <button
+                  onClick={() => setView('inbox')}
                   className={`flex items-center space-x-2 p-2 w-full text-left rounded ${view === 'inbox' ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
                 >
                   <Inbox size={18} />
                   <span>Inbox</span>
                 </button>
-                <button 
-                  onClick={() => setView('trash')} 
+                <button
+                  onClick={() => setView('trash')}
                   className={`flex items-center space-x-2 p-2 w-full text-left rounded ${view === 'trash' ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'}`}
                 >
                   <Trash2 size={18} />
                   <span>Trash</span>
                 </button>
-                <button 
-                  onClick={receiveMessage} 
+                <button
+                  onClick={receiveMessage}
                   className="flex items-center space-x-2 p-2 w-full text-left hover:bg-gray-100 rounded mt-4"
                 >
                   <MessageSquare size={18} />
@@ -388,9 +388,9 @@ export default function MessagingApp() {
             {/* Search */}
             <div className="p-4 border-t border-gray-200">
               <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="Search messages..." 
+                <input
+                  type="text"
+                  placeholder="Search messages..."
                   className="pl-10 pr-4 py-2 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -403,8 +403,8 @@ export default function MessagingApp() {
             {selectedMessages.length > 0 && (
               <div className="flex p-2 space-x-2 border-t border-gray-200">
                 {view === 'inbox' ? (
-                  <button 
-                    onClick={moveToTrash} 
+                  <button
+                    onClick={moveToTrash}
                     className="flex items-center space-x-1 bg-red-100 text-red-600 px-3 py-1 rounded-md hover:bg-red-200"
                   >
                     <Trash2 size={16} />
@@ -412,15 +412,15 @@ export default function MessagingApp() {
                   </button>
                 ) : (
                   <>
-                    <button 
-                      onClick={restoreFromTrash} 
+                    <button
+                      onClick={restoreFromTrash}
                       className="flex items-center space-x-1 bg-green-100 text-green-600 px-3 py-1 rounded-md hover:bg-green-200"
                     >
                       <RefreshCcw size={16} />
                       <span>Restore</span>
                     </button>
-                    <button 
-                      onClick={deleteMessages} 
+                    <button
+                      onClick={deleteMessages}
                       className="flex items-center space-x-1 bg-red-100 text-red-600 px-3 py-1 rounded-md hover:bg-red-200"
                     >
                       <X size={16} />
@@ -440,14 +440,14 @@ export default function MessagingApp() {
                 </div>
               ) : (
                 filteredMessages.map(message => (
-                  <div 
-                    key={message.id} 
+                  <div
+                    key={message.id}
                     className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer"
                   >
                     <div className="flex items-start p-4" onClick={() => openMessageDetail(message)}>
                       <div className="flex-shrink-0 mr-3">
-                        <input 
-                          type="checkbox" 
+                        <input
+                          type="checkbox"
                           checked={selectedMessages.includes(message.id)}
                           onChange={(e) => {
                             e.stopPropagation();
@@ -506,10 +506,10 @@ export default function MessagingApp() {
                     </div>
                     <div className="flex space-x-2">
                       {view === 'inbox' && !selectedMessage.isTrash && (
-                        <button 
+                        <button
                           onClick={() => {
-                            setMessages(messages.map(msg => 
-                              msg.id === selectedMessage.id ? {...msg, isTrash: true} : msg
+                            setMessages(messages.map(msg =>
+                              msg.id === selectedMessage.id ? { ...msg, isTrash: true } : msg
                             ));
                             setSelectedMessage(null);
                             setShowMessageDetail(false);
@@ -540,7 +540,7 @@ export default function MessagingApp() {
                       value={newMessage}
                       onChange={(e) => setNewMessage(e.target.value)}
                     />
-                    <button 
+                    <button
                       onClick={sendMessage}
                       className="ml-2 bg-primary-400 text-white p-2 rounded-lg hover:bg-primary-500"
                     >
@@ -562,7 +562,7 @@ export default function MessagingApp() {
 
       {/* New Message button - fixed at bottom */}
       <div className="fixed bottom-6 right-6">
-        <button 
+        <button
           onClick={() => {
             setSelectedMessage(null);
             setShowMessageDetail(true);
@@ -600,7 +600,7 @@ export default function MessagingApp() {
                 onChange={(e) => setNewMessage(e.target.value)}
               ></textarea>
             </div>
-            <button 
+            <button
               onClick={sendMessage}
               className="bg-primary-400 text-white px-6 py-2 rounded-lg hover:bg-primary-500 flex items-center justify-center w-full"
             >

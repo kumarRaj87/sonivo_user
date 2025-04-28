@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { Plus, FileText, Download, Trash2 } from 'lucide-react';
-import { toast } from 'react-toastify';
+import { toast } from 'sonner';
 import ContactModal from './ContactModal';
 import Loader from '../../components/loader/Loader';
 import axios from 'axios';

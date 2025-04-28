@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import { toast } from 'react-toastify';
 import axios from 'axios';
+import { toast } from 'sonner';
 
 const BASE_URL = 'http://62.169.31.76:3000';
 
@@ -70,7 +70,7 @@ function ContactModal({ isOpen, onClose, onSuccess, phonebookId }) {
       console.log('Form submitted:', formData);
     } catch (error) {
       console.error('Error adding contact:', error);
-      toast.error(error.response?.data?.message || 'Failed to add contact');
+      toast(error.response?.data?.message || 'Failed to add contact');
     } finally {
       setIsSubmitting(false);
     }
