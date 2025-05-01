@@ -4,6 +4,7 @@ import AddAgentModal from './AddAgentModal';
 import { IoPersonAddSharp } from 'react-icons/io5';
 import Loader from '../components/loader/Loader';
 import { toast } from 'sonner';
+import EditAgentModal from './EditAgentModal';
 
 export default function CreateAgentTable() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +12,9 @@ export default function CreateAgentTable() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
-  const [togglingAgent, setTogglingAgent] = useState(null); // Track which agent is being toggled
+  const [togglingAgent, setTogglingAgent] = useState(null);
+  const [editingAgent, setEditingAgent] = useState(null);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const fetchAgents = async () => {
     try {
@@ -22,7 +25,7 @@ export default function CreateAgentTable() {
       }
 
       const response = await axios.get(
-        'http://62.169.31.76:3000/agent/get_my_agents',
+        'https://vokal-api.oyelabs.com/agent/get_my_agents',
         {
           headers: {
             'accept': 'application/json',
@@ -54,7 +57,7 @@ export default function CreateAgentTable() {
       }
 
       const response = await axios.delete(
-        `http://62.169.31.76:3000/agent/del_agent/${uid}`,
+        `https://vokal-api.oyelabs.com/agent/del_agent/${uid}`,
         {
           headers: {
             'accept': 'application/json',
@@ -64,8 +67,8 @@ export default function CreateAgentTable() {
       );
 
       if (response.data.success) {
+        fetchAgents();
         toast.success("Agent deleted successfully!")
-        await fetchAgents();
       } else {
         throw new Error(response.data.message || 'Failed to delete agent');
       }
@@ -93,7 +96,7 @@ export default function CreateAgentTable() {
       );
 
       const response = await axios.patch(
-        `http://62.169.31.76:3000/agent/change_agent_activeness/${uid}`,
+        `https://vokal-api.oyelabs.com/agent/change_agent_activeness/${uid}`,
         { is_active: !currentStatus },
         {
           headers: {
@@ -131,6 +134,16 @@ export default function CreateAgentTable() {
     await fetchAgents();
   };
 
+  const handleEditClick = (agent) => {
+    setEditingAgent(agent);
+    setIsEditModalOpen(true);
+  };
+
+  const handleAgentUpdated = async () => {
+    setIsEditModalOpen(false);
+    await fetchAgents();
+  };
+
   if (isLoading) {
     return <Loader />;
   }
@@ -163,114 +176,124 @@ export default function CreateAgentTable() {
           </button>
         </div>
       </div>
-        <div className="rounded-xl overflow-hidden">
-          <div className="overflow-x-auto">
-            {/* Desktop Table */}
-            <table className="min-w-full divide-y divide-gray-200 hidden sm:table">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Auto login</th>
-                  <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mobile</th>
-                  <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comments</th>
-                  <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                  <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                  <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created at</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {agents.map((agent) => (
-                  <tr key={agent.id}>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {agent.call_force ? 'Yes' : 'No'}
-                    </td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{agent.name}</td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.email}</td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.mobile}</td>
-                    <td className="px-4 sm:px-6 py-4 text-sm text-gray-500 max-w-xs truncate">{agent.comments}</td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
-                      <button
-                        onClick={() => handleToggleActiveness(agent.uid, agent.is_active)}
-                        disabled={togglingAgent === agent.uid}
-                        className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${agent.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} ${togglingAgent === agent.uid ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-                      >
-                        {agent.is_active ? 'Active' : 'Inactive'}
-                        {togglingAgent === agent.uid && '...'}
-                      </button>
-                    </td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 space-x-2">
-                      <button className="text-blue-600 hover:text-blue-900">Edit</button>
-                      <button
-                        onClick={() => handleDeleteAgent(agent.uid)}
-                        disabled={deleteLoading}
-                        className="text-red-600 hover:text-red-900 disabled:opacity-50"
-                      >
-                        {deleteLoading ? 'Deleting...' : 'Delete'}
-                      </button>
-                    </td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {new Date(agent.createdAt).toLocaleDateString()}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            {/* Mobile Cards */}
-            <div className="sm:hidden space-y-4 p-4">
+      <div className="rounded-xl overflow-hidden">
+        <div className="overflow-x-auto">
+          {/* Desktop Table */}
+          <table className="min-w-full divide-y divide-gray-200 hidden sm:table">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Auto login</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mobile</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comments</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created at</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
               {agents.map((agent) => (
-                <div key={agent.id} className="bg-white rounded-lg shadow p-4 border border-gray-200">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-900">{agent.name}</h3>
-                      <p className="text-sm text-gray-500">{agent.email}</p>
-                    </div>
+                <tr key={agent.id}>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {agent.call_force ? 'Yes' : 'No'}
+                  </td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{agent.name}</td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.email}</td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.mobile}</td>
+                  <td className="px-4 sm:px-6 py-4 text-sm text-gray-500 max-w-xs truncate">{agent.comments}</td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
                     <button
                       onClick={() => handleToggleActiveness(agent.uid, agent.is_active)}
                       disabled={togglingAgent === agent.uid}
-                      className={`px-2 py-1 text-xs font-semibold rounded-full ${agent.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} ${togglingAgent === agent.uid ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${agent.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} ${togglingAgent === agent.uid ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                     >
                       {agent.is_active ? 'Active' : 'Inactive'}
                       {togglingAgent === agent.uid && '...'}
                     </button>
-                  </div>
-                  <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
-                    <div>
-                      <p className="text-gray-500">Mobile</p>
-                      <p>{agent.mobile}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-500">Auto Login</p>
-                      <p>{agent.call_force ? 'Yes' : 'No'}</p>
-                    </div>
-                    <div className="col-span-2">
-                      <p className="text-gray-500">Comments</p>
-                      <p className="truncate">{agent.comments}</p>
-                    </div>
-                    <div className="col-span-2">
-                      <p className="text-gray-500">Created</p>
-                      <p>{new Date(agent.createdAt).toLocaleDateString()}</p>
-                    </div>
-                  </div>
-                  <div className="mt-4 flex space-x-3">
-                    <button className="text-blue-600 hover:text-blue-900 text-sm font-medium">Edit</button>
+                  </td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 space-x-2">
+                    <button className="text-blue-600 hover:text-blue-900"
+                      onClick={() => handleEditClick(agent)}
+                    >
+                      Edit
+                    </button>
                     <button
                       onClick={() => handleDeleteAgent(agent.uid)}
                       disabled={deleteLoading}
-                      className="text-red-600 hover:text-red-900 text-sm font-medium disabled:opacity-50"
+                      className="text-red-600 hover:text-red-900 disabled:opacity-50"
                     >
                       {deleteLoading ? 'Deleting...' : 'Delete'}
                     </button>
+                  </td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {new Date(agent.createdAt).toLocaleDateString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {/* Mobile Cards */}
+          <div className="sm:hidden space-y-4 p-4">
+            {agents.map((agent) => (
+              <div key={agent.id} className="bg-white rounded-lg shadow p-4 border border-gray-200">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-900">{agent.name}</h3>
+                    <p className="text-sm text-gray-500">{agent.email}</p>
+                  </div>
+                  <button
+                    onClick={() => handleToggleActiveness(agent.uid, agent.is_active)}
+                    disabled={togglingAgent === agent.uid}
+                    className={`px-2 py-1 text-xs font-semibold rounded-full ${agent.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} ${togglingAgent === agent.uid ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                  >
+                    {agent.is_active ? 'Active' : 'Inactive'}
+                    {togglingAgent === agent.uid && '...'}
+                  </button>
+                </div>
+                <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
+                  <div>
+                    <p className="text-gray-500">Mobile</p>
+                    <p>{agent.mobile}</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-500">Auto Login</p>
+                    <p>{agent.call_force ? 'Yes' : 'No'}</p>
+                  </div>
+                  <div className="col-span-2">
+                    <p className="text-gray-500">Comments</p>
+                    <p className="truncate">{agent.comments}</p>
+                  </div>
+                  <div className="col-span-2">
+                    <p className="text-gray-500">Created</p>
+                    <p>{new Date(agent.createdAt).toLocaleDateString()}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+                <div className="mt-4 flex space-x-3">
+                  <button className="text-blue-600 hover:text-blue-900 text-sm font-medium">Edit</button>
+                  <button
+                    onClick={() => handleDeleteAgent(agent.uid)}
+                    disabled={deleteLoading}
+                    className="text-red-600 hover:text-red-900 text-sm font-medium disabled:opacity-50"
+                  >
+                    {deleteLoading ? 'Deleting...' : 'Delete'}
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
       <AddAgentModal
         isOpen={isModalOpen}
         onClose={handleAgentAdded}
+      />
+      <EditAgentModal
+        isOpen={isEditModalOpen}
+        setIsEditModalOpen={setIsEditModalOpen}
+        agent={editingAgent}
+        onAgentUpdated={handleAgentUpdated}
       />
     </div>
   );

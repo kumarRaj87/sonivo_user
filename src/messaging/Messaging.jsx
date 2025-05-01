@@ -5,10 +5,13 @@ import { MdOutlinePhoneIphone } from 'react-icons/md';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdPhonePortrait } from "react-icons/io";
 import Loader from '../components/loader/Loader';
+import MessagingApp from './MessagingApp';
 
 const Messaging = () => {
   const [showDeviceModal, setShowDeviceModal] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [selectedDevice, setSelectedDevice] = useState(null);
+
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 300);
@@ -47,11 +50,15 @@ const Messaging = () => {
           </button>
         </div>
       </div>
-      {/* Info Message */}
-      <div className="flex items-center gap-2 bg-blue-50 p-4 rounded-lg">
-        <IoInformationCircleOutline className="text-xl flex-shrink-0 text-blue-600" />
-        <span className='text-xs'>Please select a device</span>
-      </div>
+
+
+      {selectedDevice ? <MessagingApp />
+        :
+        <div className="flex items-center gap-2 bg-blue-50 p-4 rounded-lg">
+          <IoInformationCircleOutline className="text-xl flex-shrink-0 text-blue-600" />
+          <span className='text-xs'>Please select a device</span>
+        </div>
+      }
 
       {/* Device Selection Modal */}
       {showDeviceModal && (
@@ -71,7 +78,10 @@ const Messaging = () => {
               <div
                 className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
                 onClick={() => {
-                  // Handle device selection
+                  setSelectedDevice({
+                    name: 'Device A',
+                    number: '+19786361859'
+                  });
                   setShowDeviceModal(false);
                 }}
               >
@@ -90,6 +100,7 @@ const Messaging = () => {
           </div>
         </div>
       )}
+
     </div>
   );
 };
