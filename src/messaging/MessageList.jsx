@@ -7,7 +7,7 @@ export default function MessageList({
   view,
   setView,
   filteredMessages,
-  searchQuery,
+  searchQuery, 
   setSearchQuery,
   selectedMessages,
   toggleMessageSelect,
