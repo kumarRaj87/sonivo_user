@@ -5,7 +5,6 @@ import { MdOutlinePhoneIphone } from 'react-icons/md';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdPhonePortrait } from "react-icons/io";
 import Loader from '../components/loader/Loader';
-
 import MessagingApp from './MessagingApp';
 
 const Messaging = () => {
