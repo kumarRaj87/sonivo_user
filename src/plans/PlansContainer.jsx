@@ -113,15 +113,17 @@ const PlansContainer = () => {
   useEffect(() => {
     const fetchPlans = async () => {
       try {
+        const token = localStorage.getItem('authToken');
         const response = await axios.get('https://vokal-api.oyelabs.com/plan/get_plans', {
           headers: {
             'Accept': 'application/json',
-            'access-token': 'your-access-token-here' // Replace with your actual access token
+           'access-token': token
           }
         });
         
         if (response.data.success) {
           setPlans(response.data.data || []);
+          
         } else {
           setError(response.data.message || 'Failed to fetch plans');
         }
@@ -134,6 +136,9 @@ const PlansContainer = () => {
 
     fetchPlans();
   }, []);
+
+console.log(plans , "plans");
+
 
   if (loading) {
     return <Loader />;

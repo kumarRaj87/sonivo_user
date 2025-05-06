@@ -228,6 +228,8 @@
 
 // export default PlanCard;
 
+
+
 import React, { useState } from 'react';
 import {
   Check,
@@ -302,7 +304,7 @@ const PlanCard = ({ plan }) => {
               <DollarSign className="text-background h-5 w-5" />
             </div>
             <div>
-              <h3 className="font-medium">{plan.name}</h3>
+              <h3 className="font-medium text-red-500">{plan.title}</h3>
               <p className="text-sm text-gray-500">${plan.price} / {plan.planDuration} days</p>
             </div>
           </div>
