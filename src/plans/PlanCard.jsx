@@ -9,7 +9,6 @@ import {
   Shield,
   ChevronDown,
   ChevronUp,
-  DollarSign
 } from 'lucide-react';
 import clsx from 'clsx';
 import PaymentDialog from './PaymentDialog';
