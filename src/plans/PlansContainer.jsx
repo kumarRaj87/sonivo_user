@@ -10,11 +10,12 @@ const PlansContainer = () => {
 
   useEffect(() => {
     const fetchPlans = async () => {
+      const token = localStorage.getItem('authToken')
       try {
         const response = await axios.get('https://vokal-api.oyelabs.com/plan/get_plans', {
           headers: {
             'Accept': 'application/json',
-            'access-token': 'your-access-token-here'
+            'access-token': token
           }
         });
 
