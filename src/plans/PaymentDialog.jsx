@@ -58,7 +58,6 @@ const PaymentDialog = ({ plan, onClose }) => {
             );
 
             if (response.data && response.data.success) {
-                // Handle different payment providers
                 let redirectUrl;
 
                 if (activePaymentMethod === 'stripe' && response.data.data.checkoutUrl) {
