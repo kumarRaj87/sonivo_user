@@ -10,47 +10,75 @@ import { FaStripeS } from 'react-icons/fa6';
 import { FaPaypal } from 'react-icons/fa';
 import { SiRazorpay } from 'react-icons/si';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
 const PaymentDialog = ({ plan, onClose }) => {
     const [activePaymentMethod, setActivePaymentMethod] = useState('stripe');
     const [isProcessing, setIsProcessing] = useState(false);
-    const navigate = useNavigate();
 
     const handlePayment = async () => {
-        if (activePaymentMethod !== 'razorpay') {
-            // Handle other payment methods if needed
+        if (activePaymentMethod === 'offline') {
+            toast.info('Please contact our support team for offline payment instructions.');
             return;
         }
 
         setIsProcessing(true);
         try {
+            let apiEndpoint;
+            let planId;
+
+            switch (activePaymentMethod) {
+                case 'stripe':
+                    apiEndpoint = 'buy_plan_stripe';
+                    planId = plan.stripePlanId;
+                    break;
+                case 'paypal':
+                    apiEndpoint = 'buy_plan_paypal';
+                    planId = plan.paypalPlanId;
+                    break;
+                case 'razorpay':
+                    apiEndpoint = 'buy_plan_razorpay';
+                    planId = plan.razorpayPlanId;
+                    break;
+                default:
+                    throw new Error('Invalid payment method');
+            }
+
+            const token = localStorage.getItem('authToken');
+
             const response = await axios.post(
-                `https://vokal-api.oyelabs.com/user/buy_plan/${plan.razorpayPlanId}`,
-                {
-                    plan_id: plan.razorpayPlanId,
-                    amount: plan.price,
-                    duration: plan.trail_days
-                },
+                `https://vokal-api.oyelabs.com/user/${apiEndpoint}/${planId}`,
+                {},
                 {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                        'Content-Type': 'application/json'
+                        'Accept': 'application/json',
+                        'access-token': token
                     }
                 }
             );
 
-            if (response.data && response.data.success && response.data.data.url) {
-                // window.location.href = response.data.data.url;
-                navigate(response.data.data.url)
+            if (response.data && response.data.success) {
+                // Handle different payment providers
+                let redirectUrl;
+
+                if (activePaymentMethod === 'stripe' && response.data.data.checkoutUrl) {
+                    redirectUrl = response.data.data.checkoutUrl;
+                } else if ((activePaymentMethod === 'paypal' || activePaymentMethod === 'razorpay') && response.data.data.approvalUrl) {
+                    redirectUrl = response.data.data.approvalUrl;
+                } else {
+                    throw new Error('Missing redirect URL in response');
+                }
+
+                // Open the URL in a new tab
+                window.open(redirectUrl, '_blank', 'noopener,noreferrer');
+                onClose();
             } else {
                 console.error('Invalid response format');
-                // Handle error - show toast or message
+                toast.error(response.data?.message || 'Payment processing failed. Please try again.');
             }
         } catch (error) {
-            toast.error('Payment error:', error);
-            // Handle error - show toast or message
+            console.error('Payment error:', error);
+            toast.error(error.response?.data?.message || error.message || 'Payment processing failed. Please try again.');
         } finally {
             setIsProcessing(false);
         }
