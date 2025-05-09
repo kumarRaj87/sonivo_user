@@ -70,7 +70,7 @@ function Login({ setIsAuthenticated }) {
     e.preventDefault()
     setIsLoading(true)
     setError('')
-
+ 
     try {
       const response = await axios.post(
         `${BASE_URL}/user/signup`,
