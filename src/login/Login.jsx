@@ -79,7 +79,6 @@ function Login({ setIsAuthenticated }) {
           email: signupEmail,
           password: signupPassword,
           mobile: mobileNum,
-          // acceptPolicy: true
         },
         {
           headers: {
