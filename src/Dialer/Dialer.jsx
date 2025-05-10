@@ -145,7 +145,7 @@ const Dailer = () => {
                 <IoMdClose size={24} />
               </button>
               <h2 className="text-lg font-medium">Choose device</h2>
-            </div>
+            </div> 
 
             <div className="p-4">
               <div
