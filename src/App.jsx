@@ -15,7 +15,7 @@ import CreateAgentTable from './CreateAgent/CreateAgentTable';
 import CallForceTable from './CallForce/CallForceTable';
 
 import AgentIncomingCallsTable from './AgentIncomingCalls/AgentIncomingCallsTable';
-import Dailer from './Dailer/Dailer';
+import Dialer from './Dialer/Dialer';
 import DeviceManager from './deviceManager/DeviceManager';
 import PlansContainer from './plans/PlansContainer';
 
@@ -51,7 +51,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path='/phone-book' element={<PhoneBook />} />
           <Route path='/callflow' element={<CallFlow />} />
-          <Route path="/dailer" element={<Dailer />} />
+          <Route path="/dialer" element={<Dialer />} />
           <Route path="/prepare-device" element={<PrepareDevice />} />
           <Route path="/call-broadcast" element={<CallBroadcast />} />
           <Route path="/messaging" element={<Messaging />} />

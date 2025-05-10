@@ -24,7 +24,7 @@ const Sidebar = () => {
         { divider: true, label: 'Useful' },
         { path: '/dashboard', icon: MdSpaceDashboard, label: 'Dashboard' },
         { divider: true, label: 'Voice' },
-        { path: '/dailer', icon: MdDialerSip, label: 'Dailer' },
+        { path: '/dialer', icon: MdDialerSip, label: 'dialer' },
         { path: '/prepare-device', icon: MdWifiCalling3, label: 'Prepare device' },
         { path: '/call-broadcast', icon: MdPhoneForwarded, label: 'Call Broadcast' },
         { divider: true, label: 'Messaging' },

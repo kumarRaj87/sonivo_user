@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://62.169.31.76:3000';
+const BASE_URL = 'https://vokal-api.oyelabs.com';
 
 const getAuthHeaders = () => ({
   'Content-Type': 'application/json',

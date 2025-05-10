@@ -419,7 +419,7 @@
 //                 }
 //             });
 //             const data = await response.json();
-            
+
 //             if (data.success) {
 //                 setPhonebooks(data.data || []);
 //             } else {
@@ -440,7 +440,7 @@
 //                 }
 //             });
 //             const data = await response.json();
-            
+
 //             if (data.success) {
 //                 setContacts(data.data || []);
 //             } else {
@@ -469,7 +469,7 @@
 //                 },
 //                 body: JSON.stringify({ name: title })
 //             });
-            
+
 //             const data = await response.json();
 
 //             if (data.success) {
@@ -777,7 +777,7 @@ const PhoneBook = () => {
                 }
             });
             const data = await response.json();
-            
+
             if (data.success) {
                 setPhonebooks(data.data || []);
             } else {
@@ -798,7 +798,7 @@ const PhoneBook = () => {
                 }
             });
             const data = await response.json();
-            
+
             if (data.success) {
                 setContacts(data.data || []);
             } else {
@@ -825,12 +825,12 @@ const PhoneBook = () => {
                     'Content-Type': 'application/json',
                     'access-token': localStorage.getItem('authToken')
                 },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     name: title,
-                    plan_id: localStorage.getItem('planId') // Add plan_id from localStorage
+                    // plan_id: localStorage.getItem('planId') // Add plan_id from localStorage
                 })
             });
-            
+
             const data = await response.json();
 
             if (data.success) {
@@ -918,20 +918,28 @@ const PhoneBook = () => {
             <div className="rounded-lg bg-background shadow-sm">
                 <div className="p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div className="flex gap-2 flex-wrap">
-                        {phonebooks.map((phonebook) => (
-                            <button
-                                key={phonebook.id}
-                                onClick={() => {
-                                    setSelectedPhonebook(phonebook.id);
-                                    setIsModalOpen(true);
-                                }}
-                                className="flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-xl border-[1px] border-primary-400"
-                            >
-                                <Plus size={16} className='text-primary-500' />
-                                <FileText size={16} className='text-primary-500' />
-                                <span className='text-xs md:text-sm text-primary-500'>{phonebook.name}</span>
-                            </button>
-                        ))}
+                        <button
+                            onClick={() => {
+                                setSelectedPhonebook('Customers');
+                                setIsModalOpen(true);
+                            }}
+                            className="flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-xl border-[1px] border-primary-400"
+                        >
+                            <Plus size={16} className='text-primary-500' />
+                            <FileText size={16} className='text-primary-500' />
+                            <span className='text-xs md:text-sm text-primary-500'>Customers</span>
+                        </button>
+                        <button
+                            onClick={() => {
+                                setSelectedPhonebook('Leads');
+                                setIsModalOpen(true);
+                            }}
+                            className="flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-xl border-[1px] border-primary-400"
+                        >
+                            <Plus size={16} className='text-primary-500' />
+                            <FileText size={16} className='text-primary-500' />
+                            <span className='text-xs md:text-sm text-primary-500'>Leads</span>
+                        </button>
                     </div>
                     <div className="flex gap-2 self-end sm:self-auto">
                         <button className="p-1.5 md:p-2 text-primary-300 hover:text-primary">
