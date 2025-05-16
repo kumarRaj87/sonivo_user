@@ -41,7 +41,7 @@ const PlanCard = ({ plan }) => {
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold text-yellow-500">{plan.title}</h2>
           <div className="flex items-baseline">
-            <span className="text-xl font-medium text-yellow-500 opacity-90">$</span>
+            <span className="text-xl font-medium text-yellow-500 opacity-90">{plan.currency === 'INR' && '₹'}{plan.currency === 'USD' && '$'}</span>
             <span className="text-3xl font-bold text-yellow-500 ml-1">{plan.price}</span>
           </div>
         </div>
