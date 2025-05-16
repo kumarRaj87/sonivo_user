@@ -199,7 +199,7 @@ const CallBroadcast = () => {
   }
 
   return (
-    <div className="min-h-[50vh] bg-primary-200 w-full">
+    <div className="min-h-[50vh] bg-secondary w-full">
       <div className="flex flex-col items-center justify-between mb-8">
         <div className="flex justify-start items-center w-full">
           <img
@@ -226,7 +226,7 @@ const CallBroadcast = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm overflow-x-auto">
+      <div className="bg-background rounded-lg shadow-sm overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b">
@@ -294,7 +294,7 @@ const CallBroadcast = () => {
 
       {showCampaignModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[5005]">
-          <div className="bg-white w-full max-w-md rounded-xl shadow-lg">
+          <div className="bg-background w-full max-w-md rounded-xl shadow-lg">
             <div className="flex items-center gap-4 p-4 border-b">
               <button
                 onClick={() => setShowCampaignModal(false)}
@@ -307,7 +307,7 @@ const CallBroadcast = () => {
 
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+                <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                   Title
                 </div>
                 <input
@@ -322,14 +322,14 @@ const CallBroadcast = () => {
               </div>
 
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+                <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                   Select device
                 </div>
                 <select
                   name="device"
                   value={formData.device}
                   onChange={handleInputChange}
-                  className="w-full pl-3 text-sm rounded-[9px] pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary appearance-none bg-white"
+                  className="w-full pl-3 text-sm rounded-[9px] pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary appearance-none bg-background"
                 >
                   <option value="">Select a device</option>
                   <option value="Device 1">Device 1</option>
@@ -339,14 +339,14 @@ const CallBroadcast = () => {
               </div>
 
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+                <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                   Select phonebook
                 </div>
                 <select
                   name="phonebook"
                   value={formData.phonebook}
                   onChange={handleInputChange}
-                  className="w-full pl-3 text-sm rounded-[9px] pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary appearance-none bg-white"
+                  className="w-full pl-3 text-sm rounded-[9px] pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary appearance-none bg-background"
                 >
                   <option value="">Select a phonebook</option>
                   <option value="Customers">Customers</option>
@@ -356,7 +356,7 @@ const CallBroadcast = () => {
               </div>
 
               <div className="relative group">
-                <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+                <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                   Schedule
                 </div>
                 <div className="relative">
@@ -374,7 +374,7 @@ const CallBroadcast = () => {
 
               <button
                 type="submit"
-                className="w-full flex justify-center items-center gap-2 py-2 px-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                className="w-full flex justify-center items-center gap-2 py-2 px-4 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors"
               >
                 Add
               </button>

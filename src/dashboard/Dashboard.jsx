@@ -134,7 +134,7 @@ function Dashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-primary-200 p-2 w-full">
+    <div className="min-h-screen bg-secondary p-2 w-full">
       <div className="gap-5 md:flex-row justify-between items-center mb-5 flex flex-col">
         <div className="sm:h-[330px] h-[270px] md:p-6 p-2 md:w-1/2 w-full bg-background rounded-lg flex flex-col justify-between items-start">
           <div className='w-full items-center gap-3 justify-start flex px-3 py-2'>
@@ -153,7 +153,7 @@ function Dashboard() {
       </div>
       <div className="w-full bg-background p-4 gap-2 flex-col flex justify-start items-start">
         {stats.map((stat, index) => (
-          <div key={index} className="w-full justify-between items-center flex border-primary-200 border-b-[1px]">
+          <div key={index} className="w-full justify-between items-center flex border-secondary border-b-[1px]">
             <div className="flex items-center gap-4 w-full justify-start">
               <stat.icon className="w-10 h-10 text-primary-300" />
               <h3 className="text-sm font-semibold text-primary-300 w-full">{stat.title}</h3>

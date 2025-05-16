@@ -22,7 +22,7 @@ const Messaging = () => {
   }
 
   return (
-    <div className="min-h-[50vh] bg-primary-200 w-full">
+    <div className="min-h-[50vh] bg-secondary w-full">
       <div className="flex flex-col items-center justify-between mb-8">
         <div className="flex justify-start items-center w-full mb-2">
           <img
@@ -63,7 +63,7 @@ const Messaging = () => {
       {/* Device Selection Modal */}
       {showDeviceModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[5005]">
-          <div className="bg-white w-full max-w-md rounded-xl shadow-lg">
+          <div className="bg-background w-full max-w-md rounded-xl shadow-lg">
             <div className="flex items-center gap-4 p-4 border-b">
               <button
                 onClick={() => setShowDeviceModal(false)}

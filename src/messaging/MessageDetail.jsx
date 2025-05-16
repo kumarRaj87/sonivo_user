@@ -81,7 +81,7 @@ export default function MessageDetail({
   };
 
   return (
-    <div className="flex-1 flex flex-col bg-primary-200 rounded-lg shadow-md ml-0 md:ml-4">
+    <div className="flex-1 flex flex-col bg-secondary rounded-lg shadow-md ml-0 md:ml-4">
       {selectedMessage ? (
         <>
           {/* Message header */}
@@ -144,7 +144,7 @@ export default function MessageDetail({
                 <button
                   onClick={handleSendMessage}
                   disabled={isSending || !newMessage.trim()}
-                  className={`ml-2 bg-primary-500 text-white p-3 rounded-lg hover:bg-primary-600 transition-colors ${
+                  className={`ml-2 bg-primary-500 text-background p-3 rounded-lg hover:bg-primary-600 transition-colors ${
                     isSending || !newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
                 >
@@ -159,8 +159,8 @@ export default function MessageDetail({
         </>
       ) : showMessageDetail ? (
         /* New Message Form */
-        <div className="flex-1 flex flex-col bg-white rounded-lg">
-          <div className="bg-white p-4 shadow-sm border-b border-gray-200 rounded-t-lg">
+        <div className="flex-1 flex flex-col bg-background rounded-lg">
+          <div className="bg-background p-4 shadow-sm border-b border-gray-200 rounded-t-lg">
             <h2 className="font-medium text-lg">New Message</h2>
           </div>
           <div className="flex-1 p-6">
@@ -194,7 +194,7 @@ export default function MessageDetail({
             <button
               onClick={handleSendMessage}
               disabled={isSending || !newMessage.trim() || !phoneNumber.trim()}
-              className={`bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center w-full ${
+              className={`bg-primary-500 text-background px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center w-full ${
                 isSending || !newMessage.trim() || !phoneNumber.trim() ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
@@ -205,7 +205,7 @@ export default function MessageDetail({
         </div>
       ) : !isMobileView ? (
         /* Empty state - No message selected */
-        <div className="flex flex-col items-center justify-center h-full text-gray-500 bg-white rounded-lg">
+        <div className="flex flex-col items-center justify-center h-full text-gray-500 bg-background rounded-lg">
           <MessageSquare size={64} className="mb-4 opacity-30" />
           <h3 className="text-xl font-medium mb-2">No message selected</h3>
           <p className="text-center text-gray-400 max-w-xs">
@@ -216,7 +216,7 @@ export default function MessageDetail({
               setSelectedMessage(null);
               setShowMessageDetail(true);
             }}
-            className="mt-6 bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors flex items-center"
+            className="mt-6 bg-primary-500 text-background px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors flex items-center"
           >
             <Send size={16} className="mr-2" />
             New Message

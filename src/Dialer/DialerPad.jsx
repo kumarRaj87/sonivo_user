@@ -71,7 +71,7 @@ const DialerPad = ({ phoneNumber, onNumberInput, onBackspace, onClear }) => {
           }`}
           disabled={!phoneNumber}
         >
-          <FiPhone size={22} className="text-white" />
+          <FiPhone size={22} className="text-background" />
         </button>
       </div>
     </div>

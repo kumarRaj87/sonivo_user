@@ -116,7 +116,7 @@ function Login({ setIsAuthenticated }) {
 
 
   return (
-    <div className="min-h-screen bg-primary-200 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-secondary flex flex-col items-center justify-center p-4">
       <div className="w-full sm:w-[80%] md:w-[550px] bg-background p-10 rounded-lg">
         <div className="items-center mb-4 text-center flex justify-center w-full">
           <p className="text-2xl xl:text-3xl font-semibold text-primary items-center text-center">Vokal</p>
@@ -192,13 +192,13 @@ function Login({ setIsAuthenticated }) {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full text-sm bg-primary-400 text-white mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2 ${isLoading ? 'opacity-75 cursor-not-allowed' : ''
+                className={`w-full text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2 ${isLoading ? 'opacity-75 cursor-not-allowed' : ''
                   }`}
               >
                 {isLoading ? (
                   <>
                     <svg
-                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-background"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -221,7 +221,7 @@ function Login({ setIsAuthenticated }) {
                   </>
                 ) : (
                   <>
-                    <IoMdKey className="text-white" size={24} />
+                    <IoMdKey className="text-background" size={24} />
                     Login
                   </>
                 )}
@@ -329,13 +329,13 @@ function Login({ setIsAuthenticated }) {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full text-sm bg-primary-400 text-white mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2 ${isLoading ? 'opacity-75 cursor-not-allowed' : ''
+                className={`w-full text-sm bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2 ${isLoading ? 'opacity-75 cursor-not-allowed' : ''
                   }`}
               >
                 {isLoading ? (
                   <>
                     <svg
-                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-background"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -358,7 +358,7 @@ function Login({ setIsAuthenticated }) {
                   </>
                 ) : (
                   <>
-                    <IoMdKey className='text-white' size={24} />
+                    <IoMdKey className='text-background' size={24} />
                     Signup
                   </>
                 )}

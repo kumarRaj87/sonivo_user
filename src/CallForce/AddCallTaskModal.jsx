@@ -35,7 +35,7 @@ export default function AddCallTaskModal({ isOpen, onClose, onSuccess }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[5005]">
-      <div className="bg-white rounded-lg w-full max-w-md">
+      <div className="bg-background rounded-lg w-full max-w-md">
         <div className="p-6 space-y-6">
           <div className="flex justify-between items-center">
             <h3 className="text-xl font-semibold text-gray-900">Add call task</h3>
@@ -49,7 +49,7 @@ export default function AddCallTaskModal({ isOpen, onClose, onSuccess }) {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="relative group">
-              <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+              <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                 Title
               </div>
               <input
@@ -63,7 +63,7 @@ export default function AddCallTaskModal({ isOpen, onClose, onSuccess }) {
             </div>
 
             <div className="relative group">
-              <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+              <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                 Short instructions
               </div>
               <textarea
@@ -77,7 +77,7 @@ export default function AddCallTaskModal({ isOpen, onClose, onSuccess }) {
             </div>
 
             <div className="relative group">
-              <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+              <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                 Device ID
               </div>
               <input
@@ -91,7 +91,7 @@ export default function AddCallTaskModal({ isOpen, onClose, onSuccess }) {
             </div>
 
             <div className="relative group">
-              <div className="absolute -top-2.5 left-3 bg-white px-1 transition-all duration-300 text-primary text-[11px]">
+              <div className="absolute -top-2.5 left-3 bg-background px-1 transition-all duration-300 text-primary text-[11px]">
                 Agent
               </div>
               <input
@@ -110,7 +110,7 @@ export default function AddCallTaskModal({ isOpen, onClose, onSuccess }) {
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#2C3A47] text-white rounded-lg hover:bg-[#1e2832] transition-colors"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#2C3A47] text-background rounded-lg hover:bg-[#1e2832] transition-colors"
             >
               Add
             </button>

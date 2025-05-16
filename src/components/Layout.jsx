@@ -12,7 +12,7 @@ function Layout({ handleLogout }) {
   };
 
   return (
-    <div className="min-h-screen bg-primary-200">
+    <div className="min-h-screen bg-secondary">
       <Sidebar />
       <MobileSidebar
         isOpen={mobileSidebarOpen}

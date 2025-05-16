@@ -23,7 +23,7 @@ const CallFlow = () => {
     }
 
     return (
-        <div className="min-h-[50vh] bg-primary-200 w-full">
+        <div className="min-h-[50vh] bg-secondary w-full">
             <div className="flex flex-col items-center justify-between mb-8">
                 <div className="flex justify-start items-center w-full">
                     <img

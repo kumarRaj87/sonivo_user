@@ -43,7 +43,7 @@ export default function CallForceSummaryModal({ isOpen, onClose, taskId }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[5005]">
-      <div className="bg-white rounded-lg w-full max-w-6xl">
+      <div className="bg-background rounded-lg w-full max-w-6xl">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-xl font-semibold text-gray-900">Call force summary</h3>
@@ -79,7 +79,7 @@ export default function CallForceSummaryModal({ isOpen, onClose, taskId }) {
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-background divide-y divide-gray-200">
                     {logs.map((log) => (
                       <tr key={log.id}>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{log.callFrom}</td>

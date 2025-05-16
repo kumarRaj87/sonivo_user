@@ -2,32 +2,72 @@ import { useState } from 'react';
 import { MdLocalPhone } from "react-icons/md";
 import { TrashIcon } from '@heroicons/react/24/outline';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
+import axios from 'axios';
+import { toast } from 'sonner';
 
-const DevicesList = () => {
+const DevicesList = ({ device, onDelete, onEdit }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const [title, setTitle] = useState("Device A");
-    const [Sid, setSid] = useState("xxxxxxxxxxxxxxxxxxxxxxxxx");
-    const [token, setToken] = useState("xxxxxxxxxxxxxxxxxxxxxxxxx");
-    const [apiKey, setApiKey] = useState("xxxxxxxxxxxxxxxxxxxxxxxxx");
-    const [apiSecret, setApiSecret] = useState("xxxxxxxxxxxxxxxxxxxxxxxxx");
-    const [appSid, setAppSid] = useState("xxxxxxxxxxxxxxxxxxxxxxxxx");
-    const [num, setNum] = useState("19786361859");
+    const [title, setTitle] = useState(device.title);
+    const [sid, setSid] = useState(device.sid);
+    const [token, setToken] = useState(device.token);
+    const [apiKey, setApiKey] = useState(device.api_key);
+    const [apiSecret, setApiSecret] = useState(device.api_secret);
+    const [appSid, setAppSid] = useState(device.outgoing_app_sid);
+    const [num, setNum] = useState(device.number);
+    const [isUpdating, setIsUpdating] = useState(false);
+
+    const handleUpdate = async () => {
+        setIsUpdating(true);
+        try {
+            const authToken = localStorage.getItem('authToken');
+            const response = await axios.put(
+                `https://vokal-api.oyelabs.com/user/update_device/${device.device_id}`,
+                {
+                    sid,
+                    title,
+                    api_key: apiKey,
+                    api_secret: apiSecret,
+                    number: num,
+                    outgoing_app_sid: appSid,
+                    token,
+                    status: "active",
+                },
+                {
+                    headers: {
+                        'accept': 'application/json',
+                        'access-token': authToken,
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+            if (response.data.success) {
+                toast.success('Device updated successfully!');
+                onEdit(response.data.data); // Update parent state
+                setIsExpanded(false);
+            }
+        } catch (error) {
+            console.error('Error updating device:', error);
+            toast.error(error.response?.data?.message || 'Failed to update device');
+        } finally {
+            setIsUpdating(false);
+        }
+    };
 
     return (
-        <div className="w-full justify-center items-center flex flex-col">
+        <div className="w-full justify-center items-center flex flex-col mb-4">
             <div
                 className="flex items-center w-full justify-between p-4 cursor-pointer rounded-2xl bg-background shadow-sm"
                 onClick={() => setIsExpanded(!isExpanded)}
             >
                 <div className="flex items-center gap-4">
-                    <div className='sm:h-12 sm:w-12 h-8 w-8 rounded-full bg-primary-200 justify-center flex items-center'>
+                    <div className='sm:h-12 sm:w-12 h-8 w-8 rounded-full bg-secondary justify-center flex items-center'>
                         <MdLocalPhone className="sm:h-6 sm:w-6 h-4 w-4 text-primary-500" />
                     </div>
-                    <span className="text-primary-500 font-semibold text-md sm:text-xl">Device A</span>
+                    <span className="text-primary-500 font-semibold text-md sm:text-xl">{device.title}</span>
                 </div>
                 <div className="flex items-center gap-2">
                     {!isExpanded && (
-                        <span className="text-primary-300 text-sm">+19786361859</span>
+                        <span className="text-primary-300 text-sm">+{device.number}</span>
                     )}
                     {isExpanded ? (
                         <FaAngleUp className="h-4 w-4 text-primary-300" />
@@ -64,7 +104,7 @@ const DevicesList = () => {
                             </div>
                             <input
                                 type="text"
-                                value={Sid}
+                                value={sid}
                                 onChange={(e) => setSid(e.target.value)}
                                 className="w-full pl-5 text-sm rounded-[9px] bg-background pr-3 py-2 border border-gray-300 focus:outline-none focus:ring-[1px] focus:ring-primary focus:border-primary"
                                 placeholder=""
@@ -146,14 +186,24 @@ const DevicesList = () => {
                             />
                         </div>
 
-
                         <div className="flex justify-end gap-3 pt-4">
-                            <button className="px-4 py-2 text-red-500 hover:bg-red-50 rounded-md flex items-center gap-2">
+                            <button 
+                                className="px-4 py-2 text-red-500 hover:bg-red-50 rounded-md flex items-center gap-2"
+                                onClick={() => {
+                                    if (window.confirm('Are you sure you want to delete this device?')) {
+                                        onDelete(device.device_id);
+                                    }
+                                }}
+                            >
                                 <TrashIcon className="h-5 w-5" />
                                 Delete
                             </button>
-                            <button className="px-4 py-2 bg-primary-500 text-white rounded-md">
-                                Update
+                            <button 
+                                className="px-4 py-2 bg-primary-500 text-background rounded-md disabled:opacity-70"
+                                onClick={handleUpdate}
+                                disabled={isUpdating}
+                            >
+                                {isUpdating ? 'Updating...' : 'Update'}
                             </button>
                         </div>
                     </div>

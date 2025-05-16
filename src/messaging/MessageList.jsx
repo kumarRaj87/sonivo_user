@@ -96,7 +96,7 @@ export default function MessageList({
 
       {/* Mobile menu dropdown */}
       {isMobileView && isMobileMenuOpen && (
-        <div className="bg-white shadow-lg rounded-lg absolute top-32 right-4 z-10 w-48 overflow-hidden">
+        <div className="bg-background shadow-lg rounded-lg absolute top-32 right-4 z-10 w-48 overflow-hidden">
           <button
             onClick={() => { setView('inbox'); setIsMobileMenuOpen(false); }}
             className={`flex items-center space-x-2 p-3 w-full text-left hover:bg-gray-100 ${

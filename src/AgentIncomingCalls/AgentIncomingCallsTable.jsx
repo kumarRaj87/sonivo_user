@@ -85,7 +85,7 @@ export default function AgentIncomingCallsTable() {
     return <Loader />;
   }
   return (
-    <div className="min-h-[50vh] bg-primary-200 w-full">
+    <div className="min-h-[50vh] bg-secondary w-full">
 
       <div className="flex flex-col items-center justify-between mb-8">
         <div className="flex justify-start items-center w-full">
@@ -133,7 +133,7 @@ export default function AgentIncomingCallsTable() {
                 <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-background divide-y divide-gray-200">
               {mockData.map((row) => (
                 <tr key={row.id}>
                   <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900">{row.device}</td>
@@ -167,7 +167,7 @@ export default function AgentIncomingCallsTable() {
           {/* Mobile Cards */}
           <div className="sm:hidden space-y-4 p-4">
             {mockData.map((row) => (
-              <div key={row.id} className="bg-white rounded-lg shadow p-4 border border-gray-200">
+              <div key={row.id} className="bg-background rounded-lg shadow p-4 border border-gray-200">
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">{row.agent}</h3>

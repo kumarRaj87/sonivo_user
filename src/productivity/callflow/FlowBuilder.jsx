@@ -256,7 +256,7 @@ const nodeTypes = [
                         <button className="px-3 py-1 border border-gray-300 rounded">Content-Type</button>
                         <button className="px-3 py-1 border border-gray-300 rounded">application/json</button>
                     </div>
-                    <button className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">
+                    <button className="w-full bg-green-600 text-background py-2 rounded-md hover:bg-green-700">
                         Try This API
                     </button>
                 </div>
@@ -352,7 +352,7 @@ const nodeTypes = [
         id: 'open-ai',
         name: 'Open AI',
         color: 'bg-green-600',
-        textColor: 'text-white',
+        textColor: 'text-background',
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -452,7 +452,7 @@ export default function FlowBuilder({ onClose }) {
     }, []);
 
     return (
-        <div className="h-screen w-full bg-white">
+        <div className="h-screen w-full bg-background">
             <div className="flex items-center justify-between p-4 border-b">
                 <div className="flex items-center space-x-2">
                     <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
@@ -499,7 +499,7 @@ export default function FlowBuilder({ onClose }) {
                             className="fixed inset-0 bg-black bg-opacity-50 z-[5500]"
                             onClick={() => setShowSidebar(false)}
                         />
-                        <div className="z-[6000] p-4 fixed inset-y-0 right-0 w-96 bg-white shadow-xl transform transition-transform duration-300 ease-in-out">
+                        <div className="z-[6000] p-4 fixed inset-y-0 right-0 w-96 bg-background shadow-xl transform transition-transform duration-300 ease-in-out">
                             <div className="mb-4 flex justify-between items-center">
                                 <h3 className="text-lg font-medium flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">

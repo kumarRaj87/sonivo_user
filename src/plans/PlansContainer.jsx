@@ -45,7 +45,7 @@ console.log(plans , "plans");
 
   if (error) {
     return (
-      <div className="min-h-[50vh] bg-primary-200 p-4 md:p-6 w-full flex items-center justify-center">
+      <div className="min-h-[50vh] bg-secondary p-4 md:p-6 w-full flex items-center justify-center">
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
           {error}
         </div>
@@ -55,7 +55,7 @@ console.log(plans , "plans");
 
   if (!plans.length) {
     return (
-      <div className="min-h-[50vh] bg-primary-200 p-4 md:p-6 w-full flex items-center justify-center">
+      <div className="min-h-[50vh] bg-secondary p-4 md:p-6 w-full flex items-center justify-center">
         <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded">
           No plans available at the moment.
         </div>
@@ -64,7 +64,7 @@ console.log(plans , "plans");
   }
 
   return (
-    <div className="min-h-[50vh] bg-primary-200 p-4 md:p-6 w-full">
+    <div className="min-h-[50vh] bg-secondary p-4 md:p-6 w-full">
       <div className="flex flex-col items-center justify-between mb-8 w-full">
         <div className="flex justify-start items-center w-full">
           <img

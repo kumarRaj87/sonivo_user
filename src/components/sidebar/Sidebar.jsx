@@ -52,7 +52,7 @@ const Sidebar = () => {
         <aside className={`fixed hidden lg:block inset-y-0 left-0 w-60 bg-background transform transition-transform duration-300 ease-in-out`}>
             <div className="py-5 flex items-center px-4">
                 <Link to="/dashboard" className="flex items-center space-x-2 pl-2">
-                    <span className="text-2xl font-semibold text-[#1C2833]">Vokal</span>
+                    <span className="text-2xl font-semibold text-primary">Vokal</span>
                 </Link>
             </div>
 
@@ -70,11 +70,11 @@ const Sidebar = () => {
                             key={item.path}
                             to={item.path}
                             className={`flex items-center space-x-3 px-3 py-1.5 rounded-md mb-1 text-sm ${isActive(item.path)
-                                ? 'bg-[#F7FAFC] text-[#1C2833] font-medium'
-                                : 'text-gray-800 hover:bg-[#F7FAFC]'
+                                ? 'bg-secondary text-primary font-medium'
+                                : 'text-gray-800 hover:bg-secondary'
                                 }`}
                         >
-                            <item.icon className={`h-[18px] w-[18px] ${isActive(item.path) ? 'text-[#1C2833]' : 'text-gray-600'
+                            <item.icon className={`h-[18px] w-[18px] ${isActive(item.path) ? 'text-primary' : 'text-gray-600'
                                 }`} />
                             <span>{item.label}</span>
                         </Link>

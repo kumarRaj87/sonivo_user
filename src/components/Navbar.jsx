@@ -7,7 +7,7 @@ const Navbar = ({ handleLogout, toggleSidebar }) => {
 
   return (
     <>
-      <header className="h-16 sticky top-0 px-4 justify-between flex w-full bg-primary-200 border-b-[1px] border-gray-200 z-[5000]">
+      <header className="h-16 sticky top-0 px-4 justify-between flex w-full bg-secondary border-b-[1px] border-gray-200 z-[5000]">
         <div className="flex items-center">
           {/* Mobile menu button - shown only below md breakpoint */}
           <button

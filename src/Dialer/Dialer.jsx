@@ -37,7 +37,7 @@ const Dailer = () => {
   }
 
   return (
-    <div className="min-h-[50vh] bg-primary-200 w-full">
+    <div className="min-h-[50vh] bg-secondary w-full">
       <div className="flex flex-col items-center justify-between mb-8">
         <div className="flex justify-start items-center w-full">
           <img
@@ -73,7 +73,7 @@ const Dailer = () => {
         </div>
       ) : (
         // Dialer UI when device is selected
-        <div className="bg-primary-200 rounded-lg overflow-hidden w-full">
+        <div className="bg-secondary rounded-lg overflow-hidden w-full">
           {/* Device Info */}
           <div className="p-4 border-b">
             <div className="flex items-center justify-between">
@@ -117,7 +117,7 @@ const Dailer = () => {
               <CallLogs />
             )}
           </div>
-          <div className='md:flex bg-primary-200 hidden w-full justify-between items-center p-4'>
+          <div className='md:flex bg-secondary hidden w-full justify-between items-center p-4'>
             <div className='w-1/2 justify-start items-center flex'>
               <CallLogs />
             </div>
@@ -136,7 +136,7 @@ const Dailer = () => {
       {/* Device Selection Modal */}
       {showDeviceModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[5005]">
-          <div className="bg-white w-full max-w-md rounded-xl shadow-lg">
+          <div className="bg-background w-full max-w-md rounded-xl shadow-lg">
             <div className="flex items-center gap-4 p-4 border-b">
               <button
                 onClick={() => setShowDeviceModal(false)}

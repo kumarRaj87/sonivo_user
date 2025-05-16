@@ -150,7 +150,7 @@ const ContactModal = ({ isOpen, onClose, onSuccess, phonebookId }) => {
             {csvFile && (
               <button
                 onClick={handleCsvUpload}
-                className="px-4 py-2 bg-primary-400 text-white rounded-md hover:bg-primary-500"
+                className="px-4 py-2 bg-primary-400 text-background rounded-md hover:bg-primary-500"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Uploading...' : 'Import CSV'}

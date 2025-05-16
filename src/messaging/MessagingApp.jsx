@@ -140,12 +140,12 @@ export default function MessagingApp() {
   };
 
   return (
-    <div className="h-screen bg-primary-200 flex flex-col p-4">
+    <div className="h-screen bg-secondary flex flex-col p-4">
       {/* App Header */}
       <header className="bg-primary-500 text-background p-4 shadow-sm rounded-md mt-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <MessageSquare size={24} className="text-white" />
+            <MessageSquare size={24} className="text-background" />
             <h1 className="text-xl font-bold tracking-tight">MessengerPro</h1>
           </div>
           <div className="flex items-center space-x-2">

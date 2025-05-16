@@ -41,21 +41,21 @@ const FlowCapture = () => {
   };
 
   const columnMenu = (
-    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+    <div className="absolute right-0 mt-2 w-48 bg-background rounded-md shadow-lg z-50 border border-gray-200">
       <div className="py-1">
-        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-primary-200">
+        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-secondary">
           Sort by ASC
         </button>
-        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-primary-200">
+        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-secondary">
           Sort by DESC
         </button>
-        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-primary-200">
+        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-secondary">
           Filter
         </button>
-        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-primary-200">
+        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-secondary">
           Hide column
         </button>
-        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-primary-200">
+        <button className="w-full text-left px-4 py-2 text-sm text-primary-300 hover:bg-secondary">
           Manage columns
         </button>
       </div>
@@ -71,7 +71,7 @@ const FlowCapture = () => {
   }
 
   return (
-    <div className="min-h-[50vh] bg-primary-200 w-full">
+    <div className="min-h-[50vh] bg-secondary w-full">
       <div className="flex flex-col items-center justify-between mb-6">
         <div className="flex justify-start items-center w-full">
           <img
@@ -99,7 +99,7 @@ const FlowCapture = () => {
         </div>
 
         <table className="w-full">
-          <thead className="bg-primary-200">
+          <thead className="bg-secondary">
             <tr>
               <th className="px-6 py-3 text-left relative">
                 <div className="flex items-center">
@@ -179,14 +179,14 @@ const FlowCapture = () => {
               <button
                 onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                 disabled={currentPage === 1}
-                className="p-1 rounded hover:bg-primary-200 disabled:opacity-50"
+                className="p-1 rounded hover:bg-secondary disabled:opacity-50"
               >
                 <ChevronLeftIcon className="h-5 w-5 text-primary-300" />
               </button>
               <button
                 onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                 disabled={currentPage === totalPages}
-                className="p-1 rounded hover:bg-primary-200 disabled:opacity-50"
+                className="p-1 rounded hover:bg-secondary disabled:opacity-50"
               >
                 <ChevronRightIcon className="h-5 w-5 text-primary-300" />
               </button>
