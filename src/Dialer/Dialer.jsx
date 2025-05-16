@@ -4,6 +4,7 @@ import { IoMdClose } from 'react-icons/io';
 import { MdOutlinePhoneIphone } from 'react-icons/md';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdPhonePortrait } from "react-icons/io";
+import axios from 'axios';
 import Loader from '../components/loader/Loader';
 import DialerPad from './DialerPad';
 import CallLogs from './CallLogs';
@@ -12,14 +13,52 @@ const Dailer = () => {
   const [showDeviceModal, setShowDeviceModal] = useState(false);
   const [loading, setLoading] = useState(true);
   const [deviceSelected, setDeviceSelected] = useState(false);
-  const [activeTab, setActiveTab] = useState('dialer'); // 'dialer' or 'logs'
+  const [activeTab, setActiveTab] = useState('dialer');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [devices, setDevices] = useState([]);
+  const [selectedDevice, setSelectedDevice] = useState(null);
+  const [devicesLoading, setDevicesLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 300);
+    const fetchData = async () => {
+      try {
+        setTimeout(() => setLoading(false), 300);
+      } catch (error) {
+        console.error('Error:', error);
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, []);
 
-  const handleDeviceSelection = () => {
+  const fetchDevices = async () => {
+    try {
+      setDevicesLoading(true);
+      const authToken = localStorage.getItem('authToken');
+      const response = await axios.get(
+        'https://vokal-api.oyelabs.com/user/get_my_devices',
+        {
+          headers: {
+            'accept': 'application/json',
+            'access-token': authToken
+          }
+        }
+      );
+      setDevices(response.data.data);
+    } catch (error) {
+      console.error('Error fetching devices:', error);
+    } finally {
+      setDevicesLoading(false);
+    }
+  };
+
+  const handleDeviceModalOpen = async () => {
+    await fetchDevices();
+    setShowDeviceModal(true);
+  };
+
+  const handleDeviceSelection = (device) => {
+    setSelectedDevice(device);
     setDeviceSelected(true);
     setShowDeviceModal(false);
   };
@@ -56,7 +95,7 @@ const Dailer = () => {
             </div>
           </div>
           <button
-            onClick={() => setShowDeviceModal(true)}
+            onClick={handleDeviceModalOpen}
             className="text-sm self-end bg-primary-400 text-background mt-4 py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 flex items-center justify-center gap-2"
           >
             <IoMdPhonePortrait className='text-background' size={20} />
@@ -66,13 +105,11 @@ const Dailer = () => {
       </div>
 
       {!deviceSelected ? (
-        // Info Message when no device is selected
         <div className="flex items-center gap-2 bg-blue-50 p-4 rounded-lg">
           <IoInformationCircleOutline className="text-xl flex-shrink-0 text-blue-600" />
           <span className='text-xs'>Please select a device</span>
         </div>
       ) : (
-        // Dialer UI when device is selected
         <div className="bg-secondary rounded-lg overflow-hidden w-full">
           {/* Device Info */}
           <div className="p-4 border-b">
@@ -80,8 +117,8 @@ const Dailer = () => {
               <div className="flex items-center gap-2">
                 <IoMdPhonePortrait className="text-xl text-primary" />
                 <div>
-                  <div className="font-medium">Device A</div>
-                  <div className="text-sm text-gray-500">+19786361859</div>
+                  <div className="font-medium">{selectedDevice.dataValues.title}</div>
+                  <div className="text-sm text-gray-500">+{selectedDevice.dataValues.number}</div>
                 </div>
               </div>
               <div className="bg-green-100 text-green-600 text-xs px-2 py-1 rounded">Ready</div>
@@ -122,12 +159,12 @@ const Dailer = () => {
               <CallLogs />
             </div>
             <div className='w-1/3 justify-start items-center flex'>
-            <DialerPad
-              phoneNumber={phoneNumber}
-              onNumberInput={handleNumberInput}
-              onBackspace={handleBackspace}
-              onClear={() => setPhoneNumber('')}
-            />
+              <DialerPad
+                phoneNumber={phoneNumber}
+                onNumberInput={handleNumberInput}
+                onBackspace={handleBackspace}
+                onClear={() => setPhoneNumber('')}
+              />
             </div>
           </div>
         </div>
@@ -148,21 +185,34 @@ const Dailer = () => {
             </div> 
 
             <div className="p-4">
-              <div
-                className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
-                onClick={handleDeviceSelection}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                    <MdOutlinePhoneIphone className="text-xl text-gray-600" />
-                  </div>
-                  <div>
-                    <div className="font-medium">Device A</div>
-                    <div className="text-sm text-gray-500">+19786361859</div>
-                  </div>
+              {devicesLoading ? (
+                <div className="flex justify-center items-center p-8">
+                  <Loader />
                 </div>
-                <IoIosArrowForward className="text-xl text-gray-400" />
-              </div>
+              ) : devices.length > 0 ? (
+                devices.map(device => (
+                  <div
+                    key={device.dataValues.id}
+                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors mb-2"
+                    onClick={() => handleDeviceSelection(device)}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                        <MdOutlinePhoneIphone className="text-xl text-gray-600" />
+                      </div>
+                      <div>
+                        <div className="font-medium">{device.dataValues.title}</div>
+                        <div className="text-sm text-gray-500">+{device.dataValues.number}</div>
+                      </div>
+                    </div>
+                    <IoIosArrowForward className="text-xl text-gray-400" />
+                  </div>
+                ))
+              ) : (
+                <div className="text-center p-4 text-gray-500">
+                  No devices found
+                </div>
+              )}
             </div>
           </div>
         </div>
