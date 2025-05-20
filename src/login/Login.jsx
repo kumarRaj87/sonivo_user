@@ -49,6 +49,7 @@ function Login({ setIsAuthenticated }) {
       )
 
       if (response.data.success) {
+        localStorage.setItem('uId', response.data.data.uid)
         localStorage.setItem('authToken', response.data.data.token)
         localStorage.setItem('isAuthenticated', 'true');
         setIsAuthenticated(true);
